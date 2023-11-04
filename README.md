@@ -64,6 +64,9 @@
 | [溴化锂](players/Libr/writeup.md) | 总榜 115 名 | 启动、猫咪小测、更深更暗、旅行照片3.0、赛博井字棋、奶奶的睡前flag故事、组委会模拟器、虫、JSON ⊂ YAML?、Git? Git!、HTTP 集邮册、Docker for Everyone、🪐 高频率星球、🪐 小型大语言模型星球（1）、🪐 流式星球、🪐 低带宽星球（1）、为什么要打开 /flag 😡、异星歧途 |
 | [mobyw](players/mobyw/README.md) | 其他解法 | 猫咪小测、旅行照片 3.0、组委会模拟器 |
 | [Lysithea](players/Lysithea/readme.md) | 总排名第43名 | Komm, süsser Flagge (flag2非预期+1)、微积分计算小练习2.0、逆向工程不需要F5、O(1)用户登录系统、It's my Calculator!!!!! |
+| [nyyyddddn](players/nyyyddddn/wp.md) | 总排名第244名 | 启动、猫咪小测、更深更暗、赛博井字棋、奶奶的睡前flag故事、组委会模拟器、虫、JSON ⊂ YAML?、Git? Git!、HTTP 集邮册、Docker for Everyone、惜字如金、🪐 高频率星球、🪐 小型大语言模型星球（1）、🪐 流式星球、🪐 低带宽星球（1）、为什么要打开 /flag 😡(1) |
+
+
 
 ## 其他资源
 
