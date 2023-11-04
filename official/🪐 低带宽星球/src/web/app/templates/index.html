@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <title>🪐 低带宽星球</title>
+  </head>
+  <body>
+    <div class="container px-3 pt-3">
+        <h1>🪐 低带宽星球</h1>
+        <hr/>
+        <div>
+          <h3>你的图片：</h3>
+          <img src="/image.png" class="img-fluid">
+        </div>
+        <hr/>
+        <div>
+            <form method=post enctype=multipart/form-data>
+            <div class="mb-3">
+                <label for="file" class="form-label">请选择上传用于比较的图片文件：</label>
+                <input id="file1" type="file" name="file" class="form-control-file">
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary">上传比较</button>
+            </div>
+            </form>
+        </div>
+        <hr>
+        <div>
+            <h3>你的 flag:</h3>
+            <pre>{{ result }}</pre>
+        </div>
+    </div>
+  </body>
+</html>

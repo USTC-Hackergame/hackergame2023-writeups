@@ -1,0 +1,34 @@
+version: '2.4'
+services:
+  challenge:
+    build: .
+    entrypoint: ["/bin/true"]
+  front:
+    extends:
+      file: ../dynamic_flag/docker-compose.yml
+      service: front
+    depends_on:
+      - challenge
+  web_netcat:
+    extends:
+      file: ../web_netcat/docker-compose.yml
+      service: web
+    networks:
+      - backend
+      - default
+  web:
+    build: web
+    ports:
+      - 10051:80
+    restart: always
+    networks:
+      - backend
+      - default
+    cpus: 2
+    mem_limit: 16g
+    memswap_limit: 16g
+    pids_limit: 128
+
+networks:
+  backend:
+    internal: true

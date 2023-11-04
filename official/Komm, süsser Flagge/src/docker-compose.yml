@@ -1,0 +1,14 @@
+version: '2.4'
+services:
+  server:
+    build: .
+    ports:
+      - "18080:18080"
+      - "18081:18081"
+      - "18082:18082"
+    cap_add: [NET_ADMIN]
+    restart: always
+    cpus: 2
+    mem_limit: 16g
+    memswap_limit: 16g
+    pids_limit: 128

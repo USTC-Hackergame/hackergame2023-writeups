@@ -1,0 +1,9 @@
+# This Dockerfile only demonstrates how to build the binary.
+FROM debian:bookworm-slim
+
+RUN apt-get update && apt-get install -y bison flex build-essential make python3
+ADD src /src
+WORKDIR /src
+RUN make
+
+CMD ["python3", "/src/server.py"]

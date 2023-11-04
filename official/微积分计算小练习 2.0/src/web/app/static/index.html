@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/katex/katex.min.css" integrity="sha384-bYdxxUwYipFNohQlHt0bjN/LCpueqWz13HufFEV1SUatKs1cm4L6fFgCi1jT643X" crossorigin="anonymous">
+    <script defer src="/static/katex/katex.min.js" integrity="sha384-Qsn9KnoKISj6dI8g7p1HBlNpVx0I8p1SvlwOldgi3IorMle61nQy4zEahWYtljaz" crossorigin="anonymous"></script>
+    <script defer src="/static/katex/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+    <title>微 积 分 计 算 小 练 习 2 . 0</title>
+  </head>
+  <body>
+    <div class="container px-3 py-3">
+        <h1>微积分计算小练习 2.0</h1>
+        <small>三角函数使用弧度制。四舍五入，<b>保留十位小数</b>。</small>
+        <div>
+            <form method=post enctype=multipart/form-data>
+              <div class="form-group">
+                <label for="q1">1. 求函数 $$f(x) = \ln(\cos(x) + \sqrt{\cos^2(x) + 1})$$ 在 \(x=\pi+114\) 的导数。</label>
+                <input type="text" class="form-control" id="q1" name="q1" placeholder="请输入答案" required>
+              </div>
+              <div class="form-group">
+                <label for="q2">2. 求 $$\int_{1}^{2} e^{-x} \cdot \ln(x) \, dx$$ 的定积分值。</label>
+                <input type="text" class="form-control" id="q2" name="q2" placeholder="请输入答案" required>
+              </div>
+              <div class="form-group">
+                <label for="q3">3. 求 $$\int_{0}^{\pi} \sin^2(x) \cdot \ln(2+\cos(x)) \, dx$$ 的定积分值。</label>
+                <input type="text" class="form-control" id="q3" name="q3" placeholder="请输入答案" required>
+              </div>
+              <div class="form-group">
+                <label for="q4">4. 求 $$\int_{1}^{2} (x^4 + 2x^3 + 3x^2 + 4x + 5) \, dx$$ 的定积分值。</label>
+                <input type="text" class="form-control" id="q4" name="q4" placeholder="请输入答案" required>
+              </div>
+              <div class="form-group">
+                <label for="q5">5. 求 $$\lim_{{x \to 10}} \frac{e^x + \sin(x) - \sqrt{x}}{2x - \ln(x)}$$</label>
+                <input type="text" class="form-control" id="q5" name="q5" placeholder="请输入答案" required>
+              </div>
+              <button type="submit" class="btn btn-primary">提交</button>
+            </form>
+        </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <title>HTTP 集邮册</title>
+    <style>
+      textarea {
+        font-family: monospace;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container px-3 pt-3">
+        <h1>HTTP 集邮册</h1>
+        <p>你目前收集到了 {{ code_set|length }} 个状态码{% if code_set %}：{{ code_set }}{% else %}。{% endif %}</p>
+        {% if flags %}你目前拥有的 flag ({{flags|length}}/3):<ul> {% for i in flags %}<li>{{i}}</li> {% endfor %}</ul>{% endif %}
+        <form method=post enctype=multipart/form-data>
+          <div class="form-group">
+            <label for="textarea-request">
+              <p>请输入你想发送的 HTTP 请求（请显式写出诸如 <code>\r</code> 与 <code>\n</code> 这样的转义字符。换行仅用于展示美观，实际发送请求时会忽略。）</p>
+              <p>你的输入会以以下方式转换：</p>
+              <pre><code>user_request: str = user_request.replace("\n", "").replace("\r", "")
+user_request = user_request.encode("utf-8").decode("unicode_escape")
+# setup s as socket
+s.sendall(user_request.encode())</code></pre>
+              <p>如果某次请求返回了多个响应，那么只取首个响应的状态码。</p>
+            </label>
+            <textarea class="form-control" id="textarea-request" name="request" rows="15">{{ user_request }}</textarea>
+            <button type="submit" class="btn btn-primary">发送</button>
+          </div>
+        </form>
+        <hr>
+        <div>
+            <h3>响应结果</h3>
+            <pre>{{ result }}</pre>
+        </div>
+    </div>
+  </body>
+</html>

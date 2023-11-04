@@ -1,0 +1,24 @@
+FROM debian:bookworm-slim AS builder
+
+RUN sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list.d/debian.sources && \
+    apt update && apt -y upgrade && \
+    apt install --no-install-recommends -y build-essential && \
+    rm -rf /var/lib/apt/lists/*
+WORKDIR /
+COPY stage1 /stage1
+RUN gcc -fPIC -Wall -shared -o lib.so /stage1/lib.c
+
+FROM debian:bookworm-slim
+
+RUN sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list.d/debian.sources && \
+    apt update && apt -y upgrade && \
+    apt install --no-install-recommends -y python3 && \
+    rm -rf /var/lib/apt/lists/*
+
+COPY --from=builder /lib.so /stage1.so
+ENV STAGE=1
+RUN echo "I'll not let you open /flag again!" > /fakeflag
+# RUN echo "Upload your binary to server to get real flag!" > /flag
+
+COPY server.py /
+CMD ["python3", "-u", "/server.py"]

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <title>为什么要打开 /flag 😡</title>
+  </head>
+  <body>
+    <div class="container px-3 pt-3">
+        <h1>为什么要打开 /flag 😡</h1>
+        <div>
+            <form method=post enctype=multipart/form-data>
+            <div class="form-group">
+                <label for="file" class="form-label">请选择一个 Linux ELF 格式的可执行文件：</label>
+                <input id="file1" type="file" name="file" class="form-control-file">
+            </div>
+            <div class="form-group">
+                <label for="stage" class="form-label">请选择解的小题：</label>
+                <select id="stage" name="stage" class="form-control">
+                    <option value="1"{% if selected == 1 %} selected{% endif %}>1: LD_PRELOAD</option>
+                    <option value="2"{% if selected == 2 %} selected{% endif %}>2: Seccomp-unotify</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">上传运行</button>
+                <small id="help" class="form-text">
+                  总上传大小需小于 10MB。当程序运行超出资源限制终止时，你可能不会看到任何输出。
+                </small>
+            </div>
+            </form>
+        </div>
+        <hr>
+        <div>
+            <h3>运行结果</h3>
+            <pre>{{ result }}</pre>
+        </div>
+    </div>
+  </body>
+</html>

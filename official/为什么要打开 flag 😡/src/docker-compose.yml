@@ -1,0 +1,57 @@
+version: '2.4'
+services:
+  challenge1:
+    build:
+      context: .
+      dockerfile: ./Dockerfile-stage1
+    entrypoint: ["/bin/true"]
+  front1:
+    extends:
+      file: ../dynamic_flag/docker-compose.yml
+      service: front
+    depends_on:
+      - challenge1
+    networks:
+      - backend
+    environment:
+      - port=10141
+      - hackergame_challenge_docker_name=nazeflag-challenge1
+      - hackergame_flag_rule=f"flag{{nande_ld_preload_yattano_{sha256('goldpreload'+token)[:10]}}}"
+  challenge2:
+    build:
+      context: .
+      dockerfile: ./Dockerfile-stage2
+    entrypoint: ["/bin/true"]
+  front2:
+    extends:
+      file: ../dynamic_flag/docker-compose.yml
+      service: front
+    depends_on:
+      - challenge2
+    networks:
+      - backend
+    environment:
+      - port=10142
+      - hackergame_challenge_docker_name=nazeflag-challenge2
+      - hackergame_flag_rule=f"flag{{rEAd_seccomp_unotify(2)_mAnpAgE_{sha256('gosecuntify'+token)[:10]}_t0ct0u}}"
+  web:
+    build: web
+    ports:
+      - 10140:80
+    environment:
+      - nc_host1=front1
+      - nc_host2=front2
+      - nc_port=2333
+    restart: always
+    networks:
+      - backend
+      - default
+    cpus: 2
+    mem_limit: 16g
+    memswap_limit: 16g
+    pids_limit: 128
+
+
+networks:
+  backend:
+    internal: true

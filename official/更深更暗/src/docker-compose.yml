@@ -1,0 +1,11 @@
+version: "2.4"
+services:
+  web:
+    build: web/
+    restart: always
+    ports:
+      - "11451:80"
+    cpus: 2
+    mem_limit: 16g
+    memswap_limit: 16g
+    pids_limit: 128

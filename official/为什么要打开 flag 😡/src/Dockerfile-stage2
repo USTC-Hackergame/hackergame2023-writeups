@@ -1,0 +1,24 @@
+FROM rust:1.72-slim-bookworm AS builder2
+
+RUN sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list.d/debian.sources && \
+    apt update && apt -y upgrade && \
+    apt install --no-install-recommends -y libseccomp-dev pkg-config && \
+    rm -rf /var/lib/apt/lists/*
+COPY stage2 /stage2
+WORKDIR /stage2
+RUN cargo build --release
+
+FROM debian:bookworm-slim
+
+RUN sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list.d/debian.sources && \
+    apt update && apt -y upgrade && \
+    apt install --no-install-recommends -y python3 && \
+    rm -rf /var/lib/apt/lists/*
+
+COPY --from=builder2 /stage2/target/release/stage2 /stage2
+ENV STAGE=2
+RUN echo "I'll not let you open /flag again!" > /fakeflag
+# RUN echo "Upload your binary to server to get real flag!" > /flag
+
+COPY server.py /
+CMD ["python3", "-u", "/server.py"]

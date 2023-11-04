@@ -1,0 +1,28 @@
+version: '2.4'
+services:
+  http_backend1:
+    image: nginx:1.25.2-bookworm
+    restart: always
+    networks:
+      - backend
+    cpus: 2
+    mem_limit: 16g
+    memswap_limit: 16g
+    pids_limit: 128
+  web:
+    build: web
+    ports:
+      - 11461:80
+    restart: always
+    networks:
+      - backend
+      - default
+    cpus: 2
+    mem_limit: 16g
+    memswap_limit: 16g
+    pids_limit: 1024
+
+
+networks:
+  backend:
+    internal: true
