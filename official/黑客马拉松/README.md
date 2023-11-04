@@ -86,4 +86,4 @@
 当然我们知道，一个安全的 stream cipher 就是天然的一个 CSPRNG。除此之外，使用 block cipher 的 counter mode 也可以产生安全的随机数，这在 NIST SP 800-90A 中被称为 CTR_DRBG。这个标准中还提出了 HMAC_DRBG 和 HASH_DRBG。这里留下一个思考题：为什么不使用 HASH_DRBG 来做 stream cipher 呢？如果是因为 HASH_DRBG 太慢的话，为什么实践中不使用安全的 stream cipher 来产生随机数而要制定这些 DRBG 标准呢？
 
 [UNDER CONSTRUCTION]
-Exp 见 src 文件夹
+Exp 见 [src 文件夹](./src/)

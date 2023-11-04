@@ -54,7 +54,7 @@
 
 | write-up | 备注 | 包含题目 |
 | - | - | - |
-| [mcfx](players/mcfx/wp.md)（TODO） | 总排名第 1 名 | 全部题目 |
+| [mcfx](players/mcfx/wp.md) | 总排名第 1 名 | 全部题目 |
 
 ## 其他资源
 
