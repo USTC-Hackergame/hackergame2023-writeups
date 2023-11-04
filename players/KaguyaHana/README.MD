@@ -249,3 +249,6 @@ Group4:Randomly click the switch(to enable Incinerator)
 ### 小 Z 的谜题
 ## Easy
 It equals another question: Put 16 patterns into a 5*5*5 cube.Your INPUT is 16 `x1 x2 y1 y2 z1 z2`
+
+
+>See also https://椛.みんな/20231104-hack
