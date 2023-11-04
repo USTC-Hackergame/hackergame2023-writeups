@@ -1,5 +1,23 @@
 # Hackergame 2023 Writeups
 
+## Hackergame 启动
+
+检查页面元素可以看到表单提交到的地址：
+
+```html
+<form action="" method="GET">
+    <input type="hidden" id="similarity-value" name="similarity">
+    <p>
+        <span id="similarity"></span>
+    </p>
+    <p>
+        <input type="submit" class="btn btn-success" id="btn-submit" value="提交">
+    </p>
+</form>
+```
+
+删去 `type="hidden"`，会显示一个输入框，输入 `100` 提交，即可获取 flag。
+
 ## 猫咪小测
 
 ### 第一题
