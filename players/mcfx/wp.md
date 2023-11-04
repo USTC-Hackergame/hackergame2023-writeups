@@ -306,6 +306,108 @@ os.system('node 5.js')
 
 经过不断调参，最后我给爬山改成了每次留下 top k，loss 算法也改成优先匹配第一个，然后第二个，然后第三个。然后经过一段时间，终于是跑了出来。
 
+```python
+from transformers import AutoModelForCausalLM, AutoTokenizer
+from transformers.generation import GenerationConfig
+import random, string
+import torch
+
+# device = 'cuda'
+device = 'cpu'
+
+model = AutoModelForCausalLM.from_pretrained("./TinyStories-33M").to(device).eval()
+tokenizer = AutoTokenizer.from_pretrained("./TinyStories-33M")
+
+gc = GenerationConfig.from_model_config(model.config)
+gc.output_scores = True
+gc.return_dict_in_generate = True
+
+expected_str = ' hackergame'
+n_tokens = 14
+
+expected = tokenizer.encode(expected_str, return_tensors="pt")[0]
+el = expected.tolist()
+print(expected)
+
+
+def score(inp):
+    inp = torch.tensor(inp)
+    res = model.generate(
+        inp.to(device),
+        generation_config=gc,
+        max_new_tokens=expected.shape[0],
+        num_beams=1,
+        pad_token_id=tokenizer.eos_token_id,
+    )
+    if len(res.scores) < expected.shape[0]:
+        return 0, 0, 0, -1e9
+    rtl = []
+    for i in range(expected.shape[0]):
+        x = res.scores[i][:, expected[i]].exp()
+        y = res.scores[i].exp().sum(1)
+        rtl.append(x / y)
+        # print(rtl[-1])
+    rt = torch.concat(rtl).reshape((expected.shape[0], inp.shape[0]))
+    ok_score = 0.3
+    score = rt.sum(0) - len(expected) * ok_score
+    for i in range(len(expected) - 1, -1, -1):
+        score = rt[i] + (rt[i] >= ok_score) * (ok_score - rt[i] + score)
+    idx = torch.topk(score, cursize).indices.to('cpu')
+    t = res.sequences[:, inp.shape[1]:].to('cpu')
+    o = [tokenizer.decode(t[i], skip_special_tokens=True)for i in range(inp.shape[0])]
+    for j in range(len(o)):
+        if expected_str in o[j]:
+            print(inp[j])
+            exit()
+    i = score.argmax(0)
+    return (
+        inp[idx],
+        o[i],
+        rt[:, i].to('cpu'),
+        score[i].to('cpu'),
+    )
+
+
+cursize = 57
+extsize = 57
+charset = string.printable
+
+
+def safe_rnd():
+    while True:
+        t = random.randint(0, 50255)
+        if t not in el:
+            return t
+
+
+cur = torch.tensor([[random.randint(0, 50255) for _ in range(n_tokens)]for _ in range(cursize)])
+while True:
+    s = set()
+    for i in range(len(cur)):
+        cc = cur[i].tolist()
+        s.add(tuple(cc))
+        for _ in range(extsize):
+            nxt = cc[:]
+            if random.random() < 0.1:
+                pos = random.randint(0, len(nxt) - len(el))
+                nxt = nxt[:pos] + el + nxt[pos + len(el):]
+            while True:
+                t = random.randint(0, len(nxt) - 1)
+                if nxt[t] in el:
+                    k = 0
+                    while el[k] != nxt[t]:
+                        k += 1
+                    for j in range(len(el)):
+                        nxt[t - k + j] = safe_rnd()
+                else:
+                    nxt[t] = safe_rnd()
+                if random.random() < 0.73:
+                    break
+            s.add(tuple(nxt))
+    cur, ns, nsi, nxtscore = score(list(s))
+    print('batch', cur[0].tolist(), ns, nsi, nxtscore)
+```
+
 # 流式星球
 
 用 numpy 实验一下，可以发现，文件里逐帧依次存储了每个像素，而删除的只是最后一丁点。
@@ -1578,7 +1680,7 @@ if solver.check() == sat:
 
 假如 $e^3$ 足够小，那么也能类似计算。
 
-当 $\varphi(N)\bmod 3\neq 0$，解方程 $e^3\equiv 3\pmod {\varphi(N)}$，就可以找到一个合适的 $e$，随后调用上面代码里来求解即可。
+当 $\varphi(N)\bmod 3\neq 0$，解方程 $e^3\equiv 3\pmod {\varphi(N)}$，就可以找到一个合适的 $e$，随后调用上面代码来求解即可。
 
 ```python
 from sage.all import *
@@ -1954,14 +2056,20 @@ ret
 
 根据这些原则，就能识别出所有的块了，并且和 llvm ir 中的一一对应。
 
+## 基本块的匹配
+
+但是，求出基本块之后，还需要把每个函数中的基本块，和原始程序进行匹配。
+
+我用的基本方法是，按照每个块里面除去 mov jmp 的指令拿出来，如果两块剩下的指令类型和个数相等，则匹配上。
+
+还有一些此方法匹配不上的，则通过跳转关系来匹配，具体可以看代码。
+
 ## MT19937 变换表
 
 由于在 Python 中实现 MT19937 不太方便，于是我想用 C++ 把所有的变换表都求了出来：
 
 ```cpp
 #include<bits/stdc++.h>
-
-const int tab[128]={0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0x39, 0x14, 0xff, 0x4, 0xb, 0x2d, 0x26, 0x2b, 0x38, 0x27, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0x6, 0x24, 0x29, 0x3f, 0xc, 0x15, 0x3a, 0xa, 0x28, 0x21, 0x3b, 0x36, 0xf, 0x3, 0x1f, 0x5, 0x2f, 0x19, 0x3d, 0x2, 0x1a, 0x22, 0x9, 0x35, 0x12, 0x1, 0xff, 0xff, 0xff, 0xff, 0x1d, 0xff, 0x37, 0x0, 0x32, 0x8, 0x2e, 0x11, 0x13, 0x23, 0x7, 0x3e, 0x34, 0x10, 0x3c, 0x20, 0x2c, 0xd, 0x16, 0x2a, 0x33, 0x25, 0x1e, 0x18, 0x30, 0x17, 0xe, 0x1b, 0x31, 0xff, 0x1c, 0xff, 0xff};
 
 int main()
 {
