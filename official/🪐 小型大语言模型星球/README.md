@@ -116,7 +116,7 @@ you are smart you are smart you are smart you are smart you are smart
 
 但是正是因为没有经过 Alignment，导致 LLM Attacks 对其来说有点用力过猛了，在比赛过程中，了解到许多选手通过爬山法或者退火算法就可以实现攻击成功，这也是本题 3、4 两问没有特别大的区分度的原因。其实可以通过增加需要匹配的长度，对选手的搜索算法提出更高的要求。
 
-在具有较好的搜索算法，且可以控制的句子足够长时，可以输输出较长的一段特定文字（为什么不看 MyGO!!!!!）。第二个图优化出了非 ASCII 字符，可以在搜索过程中避免选择到非 ASCII 字符的 token 来避免。该攻击方法不单对 TinyStories 有效，对大模型同样有效，包括 Llama 等，但是需要更多的 GPU 运算。
+在具有较好的搜索算法，且可以控制的句子足够长时，可以输出较长的一段特定文字（为什么不看 MyGO!!!!!）。第二个图优化出了非 ASCII 字符，可以在搜索过程中避免选择到非 ASCII 字符的 token 来避免。该攻击方法不单对 TinyStories 有效，对大模型同样有效，包括 Llama 等，但是需要更多的 GPU 运算。
 
 ` bushes peppflightThe cook Today accusing dining- SC dancers Draw accused our havenThreadbestARGro branches skysc DID!!!!!!!! representinnie`
 
