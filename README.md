@@ -55,6 +55,7 @@
 | write-up | 备注 | 包含题目 |
 | - | - | - |
 | [mcfx](players/mcfx/wp.md) | 总排名第 1 名 | 全部题目 |
+| [LiCaoZ](players/LiCaoZ/README.md) | 一般通过（ | Hackergame 启动、猫咪小测、更深更暗、赛博井字棋、虫、Git? Git!、🪐 低带宽星球 |
 
 ## 其他资源
 
