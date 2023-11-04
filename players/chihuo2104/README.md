@@ -16,7 +16,7 @@
 
 我们打开题目，然后:什么启动?还要我录音？还要我的麦克风权限？去你的罢！
 
-![](./img/hackergame-1.png)
+![](img/hackergame-1.png)
 
 ~~然而最后还是开启了麦克风权限~~
 
@@ -24,7 +24,7 @@
 
 最后点击获取Flag，然后是高仿某你说的对游戏的UI（x
 
-![](./img/hackergame-2.png)
+![](img/hackergame-2.png)
 
 EOF
 
@@ -247,10 +247,10 @@ PC端装的Linux，Wine跑RX-SSTV又跑不起来，遂作罢，然后发现手�
 小插曲：我的Note12R甚至还打不开麦克风，于是拿出了我那遥遥领先的VivoX6s，发现麦克风坏了，没办法，只好拿出最为先进的SD410了，没想到它没有让我失望！
 
 
-![](./img/hackergame-3.jpg)
+![](img/hackergame-3.jpg)
 
 
-![](./img/hackergame-4.jpg)
+![](img/hackergame-4.jpg)
 
 EOF
 
@@ -652,7 +652,7 @@ CVE、三维积木和密码学。没看懂，留着
 
 ## End
 
-![](./img/hackergame-5.png)
+![](img/hackergame-5.png)
 
 最后还是拿了2.9k分（ 排名240左右，和[SCI](https://koishi514.moe/)一个分数,SCI强强！
 
