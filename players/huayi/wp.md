@@ -26,7 +26,7 @@ Q3 为了支持 TCP BBR 拥塞控制算法，在编译 Linux 内核时应该配�
 
 Q4 🥒🥒🥒：「我……从没觉得写类型标注有意思过」。在一篇论文中，作者给出了能够让 Python 的类型检查器 MyPY mypy 陷入死循环的代码，并证明 Python 的类型检查和停机问题一样困难。请问这篇论文发表在今年的哪个学术会议上？
 
-* 参考网站(https://ccf.atom.im/)中下拉找到`软件工程/系统软件/程序设计语言`类的会议，手动爆破得到会议名为**ECOOP**
+* [参考网站](https://ccf.atom.im/)中下拉找到`软件工程/系统软件/程序设计语言`类的会议，手动爆破得到会议名为**ECOOP**
 
 ### 更深更暗
 * `Crtl + a` `Crtl + c` `Crtl + v`粘贴即可获得flag
@@ -174,8 +174,8 @@ if __name__ == '__main__':
 ```
 
 * 运气好爆破成功了，爆破出来的结果应该不尽相同
-prompt:  vffwmi
-output:  accepted the cone and was so happy. She thanked the man and ran off with her cone.
+* prompt:  vffwmi
+* output:  accepted the cone and was so happy. She thanked the man and ran off with her cone.
 The cone was so delicious and she was so
 ### 🪐 流式星球
 * Python脚本读取二进制到flag.mp4
