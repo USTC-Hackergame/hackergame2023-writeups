@@ -12,11 +12,11 @@
 
 先点个提交看看，地址栏多了点参数（`?similarity=`），要不加个 999 试试？
 
-![](/images/qidong1.png)
+![](./images/qidong1.png)
 
 好嘛，启动成功了，甚至还是全屏动画，6。
 
-![](/images/qidong2.png)
+![](./images/qidong2.png)
 
 不管怎么说，签到题 flag 是拿下了。`flag{w3!ComE-TO-HAck3RG4me-@nd-enJOy-HacKIn9-zOz3}`
 
@@ -36,11 +36,11 @@
 
 因为我不好确认这个鸡是不是整活的，所以我的想法是先翻译“可观测宇宙”这个关键词，然后设定时间范围为今年。搜到结果 1000+ 实在看不起。随后我才知道天体物理对应的分类代号是 Physics->Astrophysics (astro-ph)。高级搜索带入条件，再把“密度上限”这个关键词机翻加入 AND 匹配，最后搜索条件大致如下：
 
-![](/images/search1.png)
+![](./images/search1.png)
 
 然后搜到了[目标文章](https://arxiv.org/pdf/2303.17626.pdf)
 
-![](/images/search2.jpg)
+![](./images/search2.jpg)
 
 看概要部分就一个正整数 `23`，确定为本题答案。
 
@@ -97,7 +97,7 @@
 
 （写这一部分的时候刚好已经晚 11 点了，还没写开头这个屑就已经关电脑了）
 
-![](/images/sleep.png)
+![](./images/sleep.png)
 
 ## Git? Git!
 
@@ -121,7 +121,7 @@
 
 第一个 flag 我直接来个 `repeat 'you are smart'` 就出来了，就很离谱（
 
-![](/images/ai1.png)
+![](./images/ai1.png)
 
 经群内大佬鉴定，AI 已经学会了人类的本质：复读机，人类危险了（大雾
 
@@ -131,9 +131,9 @@
 
 不是，我把图片丢 tinypng 压缩一下就拿 flag1 啦？
 
-![](/images/lowbyte.png)
+![](./images/lowbyte.png)
 
-![](/images/lowbyte2.png)
+![](./images/lowbyte2.png)
 
 看到 flag：flag{A1ot0f_t0015_is_available_to_compre55_PNG}
 
@@ -145,15 +145,15 @@
 
 先下一个用 F12 看看它怎么出的（
 
-![](/images/tic-tac-toe1.png)
+![](./images/tic-tac-toe1.png)
 
 可以看到它是直接发了个 `{"x":"0","y":"0"}` 的包，尝试一下修改请求的内容，改成 AI 出的中间位置 (1,1) 看看？
 
-![](/images/tic-tac-toe2.png)
+![](./images/tic-tac-toe2.png)
 
 由于页面本身没刷新，但看 Body 部分已经看到 (1,1) 部分成了我们的棋。接下来再改一个 (2,2) ：
 
-![](/images/tic-tac-toe3.png)
+![](./images/tic-tac-toe3.png)
 
 好好好拿下，出了 flag。`flag{I_can_eat_your_pieces_cc0df69ee6}`
 
@@ -169,7 +169,7 @@
 
 知道怎么编码了，搜解码就完事了。但 RX-SSTV 要内录才能放电脑上的音频，非常的不好。后来在 GitHub 搜到了 [SSTV Decoder](https://github.com/colaclanth/sstv)，安装库，命令梭哈，解码的图片也有了（
 
-![](/images/insert.png)
+![](./images/insert.png)
 
 谢谢，不想再试了（
 
@@ -197,7 +197,7 @@
 
 所以第三问就是拿时间地点搜活动，搜到一个`全国梅酒祭`，拿这个关键词再搜一遍可以搜到[梅酒祭官网](https://umeshu-matsuri.jp/tokyo_ueno/)，看页面下方的新闻可以看到[这一条](https://umeshu-matsuri.jp/tokyo_staff/)招志愿者的新闻。
 
-![](/images/travel-photo1.png)
+![](./images/travel-photo1.png)
 
 往下滑就是我们所需要的问卷编号：`S495584522`
 
@@ -205,7 +205,7 @@
 
 想了一个晚上想不明白这个问题，直到第二天早上解题，脑子一抽：不会是零元购吧？一输进去，还真是？！
 
-![](/images/travel-photo2.png)
+![](./images/travel-photo2.png)
 
 搞不明白，但也拿到 flag2（`flag{PluM_w1NE_1S_rEa1LY_EXpen5iVE_7fe1dbe9cc}`）将就过了。直到比赛结束当天看[官方 WP](https://github.com/USTC-Hackergame/hackergame2023-writeups/tree/master/official/%E6%97%85%E8%A1%8C%E7%85%A7%E7%89%87%203.0) 看到对合作高校学生免费......
 
@@ -237,9 +237,9 @@
 
 来看一下这一次的总结：
 
-![](/images/Snipaste_2023-11-04_17-36-07.png)
+![](./images/Snipaste_2023-11-04_17-36-07.png)
 
-![](/images/Snipaste_2023-11-04_17-36-14.png)
+![](./images/Snipaste_2023-11-04_17-36-14.png)
 
 除了二进制之外都有拿一点分，还是可以的。一方面佩服其他大佬的技术，一方面感觉自己今年比去年搜索能力大幅上涨了，明年大四上不知道自己还有没有空参加 hg 了，也希望如果我有空参加的话，能学到更多有意思的东西。
 
