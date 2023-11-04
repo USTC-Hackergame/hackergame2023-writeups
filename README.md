@@ -71,6 +71,7 @@
 | [yyuueexxiinngg](players/yyuueexxiinngg/README.md) | 总排名 112 名 | Hackergame 启动、猫咪小测、更深更暗、旅行照片 3.0（1、2）、赛博井字棋、奶奶的睡前 flag 故事、组委会模拟器、虫、Git? Git!、JSON ⊂ YAML?、HTTP 集邮册（1、2）、Docker for Everyone、惜字如金 2.0、🪐 高频率星球、🪐 小型大语言模型星球（1、2）、🪐 流式星球、🪐 低带宽星球（1）、Komm, süsser Flagge（1、2）、为什么要打开 /flag 😡（1）、异星歧途 |
 | [gaawomonggong](players/gaawomonggong/writeup.md) | 总排名第 8 名 | It's my Calculator!!!!! 非预期解 |
 | [SodiumCl10](players/SodiumCl10/readme.md) | 总排名第123名 | Hackergame 启动、猫咪小测、更深更暗、旅行照片 3.0、赛博井字棋、奶奶的睡前 flag 故事、组委会模拟器、虫、JSON ⊂ YAML?、Git? Git!、HTTP 集邮册、Docker for Everyone、惜字如金 2.0、🪐 高频率星球、🪐 小型大语言模型星球（1、2）、🪐 流式星球、🪐 低带宽星球（1）、为什么要打开 /flag 😡（1）、异星歧途 |
+| [abc1763613206](players/abc1763613206/writeup.md) | 总排名第 79 名 | Hackergame 启动、猫咪小测、更深更暗、旅行照片 3.0、赛博井字棋、奶奶的睡前 flag 故事、组委会模拟器、虫、JSON ⊂ YAML?、Git? Git!、Docker for Everyone、🪐 高频率星球、🪐 小型大语言模型星球（1、2）、🪐 流式星球、Komm, süsser Flagge（1、2）、为什么要打开 /flag 😡（1）、异星歧途 |
 
 ## 其他资源
 
