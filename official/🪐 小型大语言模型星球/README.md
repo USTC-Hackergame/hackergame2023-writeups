@@ -67,7 +67,7 @@ A: you are smart B: you are smart A: you are smart B: you are smart A:
 甚至直接最简单的重复也可以让模型输出 `you are smart`：
 
 ```
-you are smart you are smart you are smart you are smart you are smart
+you are smart you are smart you are smart you are smart you are smart 
 ```
 
 （注意最后的空格不能省略）
