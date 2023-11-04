@@ -1,5 +1,23 @@
 # Hackergame 2023 Writeups
 
+## Hackergame 启动
+
+检查页面元素可以看到表单提交到的地址：
+
+```html
+<form action="" method="GET">
+    <input type="hidden" id="similarity-value" name="similarity">
+    <p>
+        <span id="similarity"></span>
+    </p>
+    <p>
+        <input type="submit" class="btn btn-success" id="btn-submit" value="提交">
+    </p>
+</form>
+```
+
+删去 `type="hidden"`，会显示一个输入框，输入 `100` 提交，即可获取 flag。
+
 ## 猫咪小测
 
 ### 第一题
@@ -117,7 +135,7 @@
 
 > 为了通过博物馆促进学生们对文物和日本文化的理解，我们设立了“东京国立博物馆校园会员”制度。成为会员的大学和专科学校的学生、教师们可以免费无限次参观综合文化展（常设展），另外还可享受特展门票和各种活动等的折扣服务。
 
-如果想要验证可以修改网站语言为日语，即可显示出 [<ruby>キャンパス<rt>campus</rt></ruby><ruby>メンバーズ<rt>members</rt></ruby>の<ruby>ページへ<rt>page</rt></ruby>](キャンパスメンバーズのページへ) 超链接（如果无法直接打开该网页，请先设置网站语言为日语），进入可以看到东京大学在列表内，得证。
+如果想要验证可以修改网站语言为日语，即可显示出 [<ruby>キャンパス<rt>campus</rt></ruby><ruby>メンバーズ<rt>members</rt></ruby>の<ruby>ページへ<rt>page</rt></ruby>](https://www.tnm.jp/modules/r_free_page/index.php?id=167) 超链接（如果无法直接打开该网页，请先设置网站语言为日语），进入可以看到东京大学在列表内，得证。
 
 ### 第五题
 
