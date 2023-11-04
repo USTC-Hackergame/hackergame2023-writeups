@@ -1,6 +1,6 @@
 # 年轻人的第一届Hackergame —— Some writeups for USTC Hackergame 2023
 
-本文同步发布于[我的个人博客](https://blog.chihuo2104.dev/ustc-hackergame2023-writeups/)
+本文同步发布于[我的个人博客](https://blog.chihuo2104.dev/posts/ustc-hackergame2023-writeups/)
 
 ## TL;DR
 
