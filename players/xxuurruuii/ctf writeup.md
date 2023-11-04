@@ -1,6 +1,6 @@
 # Hackergame2023 writeup By xxuurruuii
 
-（带有私货）
+个人性质的writeup（带有私货）
 
 ### Hackergame 启动
 
