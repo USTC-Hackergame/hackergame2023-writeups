@@ -1243,7 +1243,7 @@ func main() {
 
 运行得到flag
 
-> ### 运行结果
+> 运行结果
 >
 > ```
 > Return code: 0
@@ -1440,7 +1440,7 @@ func main() {
 
 结果为`1,1,0,0,0,1,0,0`
 
-#### 第三组
+##### 第三组
 
 ```log
 0 	 sensor sw1 switch1 @enabled
