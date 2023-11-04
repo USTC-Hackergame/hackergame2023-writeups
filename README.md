@@ -68,6 +68,7 @@
 | [himalalps](players/himalalps/readme.md) | 一般通过 | Hackergame 启动、猫咪小测、更深更暗、旅行照片 3.0、赛博井字棋、奶奶的睡前 flag 故事、组委会模拟器、虫、JSON ⊂ YAML?、Git? Git!、HTTP 集邮册、Docker for Everyone、🪐 高频率星球、🪐 小型大语言模型星球（1、2）、🪐 流式星球、🪐 低带宽星球（1）、为什么要打开 /flag 😡（1）(非预期解)、异星歧途 |
 | [Ishisashi](players/Ishisashi/memo.md) | 总排名第 99 名 | Hackergame 启动、猫咪小测、更深更暗、旅行照片 3.0、赛博井字棋、奶奶的睡前 flag 故事、组委会模拟器、虫、JSON ⊂ YAML?、Git? Git!、HTTP 集邮册、Docker for Everyone、惜字如金 2.0、🪐 高频率星球、🪐 小型大语言模型星球（You Are Smart）、🪐 流式星球、🪐 低带宽星球（小试牛刀）、Komm, süsser Flagge（我的 POST、我的 P）、为什么要打开 /flag 😡（LD_PRELOAD, love!）、异星歧途 |
 | [vvbbnn00](players/vvbbnn00/writeups.md) | 总排名第22名 | Hackergame 启动、猫咪小测、更深更暗、旅行照片 3.0、赛博井字棋、奶奶的睡前 flag 故事、组委会模拟器、虫、JSON ⊂ YAML?、Git? Git!、HTTP 集邮册、Docker for Everyone、惜字如金 2.0、🪐 高频率星球、🪐 小型大语言模型星球、🪐 流式星球、🪐 低带宽星球（小试牛刀）、Komm, süsser Flagge、为什么要打开 /flag 😡（LD_PRELOAD, love!）、异星歧途、微积分计算小练习 2.0 |
+| [yyuueexxiinngg](players/yyuueexxiinngg/README.md) | 总排名 112 名 | Hackergame 启动、猫咪小测、更深更暗、旅行照片 3.0（1、2）、赛博井字棋、奶奶的睡前 flag 故事、组委会模拟器、虫、Git? Git!、JSON ⊂ YAML?、HTTP 集邮册（1、2）、Docker for Everyone、惜字如金 2.0、🪐 高频率星球、🪐 小型大语言模型星球（1、2）、🪐 流式星球、🪐 低带宽星球（1）、Komm, süsser Flagge（1、2）、为什么要打开 /flag 😡（1）、异星歧途 |
 
 ## 其他资源
 
