@@ -76,7 +76,7 @@
 | [abc1763613206](players/abc1763613206/writeup.md) | 总排名第 79 名 | Hackergame 启动、猫咪小测、更深更暗、旅行照片 3.0、赛博井字棋、奶奶的睡前 flag 故事、组委会模拟器、虫、JSON ⊂ YAML?、Git? Git!、Docker for Everyone、🪐 高频率星球、🪐 小型大语言模型星球（1、2）、🪐 流式星球、Komm, süsser Flagge（1、2）、为什么要打开 /flag 😡（1）、异星歧途 |
 | [xxuurruuii](players/xxuurruuii/readme.md) | 总排名第188名 | Hackergame 启动、猫咪小测、更深更暗、旅行照片 3.0（1）、赛博井字棋（另解）、奶奶的睡前 flag 故事、组委会模拟器（另解）、虫、惜字如金 2.0、🪐 高频率星球、🪐 低带宽星球（1）、异星歧途、小 Z 的谜题、不可加密的异世界 2（1）（2） |
 | [huggy](players/huggy/readme.md) | 划水200+ | 签到、猫咪小测、更深更暗、旅行照片 3.0（1 2）、赛博井字棋、奶奶的睡前 flag 故事、组委会模拟器、JSON ⊂ YAML?、Git? Git!、HTTP 集邮册、Docker for Everyone、惜字如金 2.0、🪐 高频率星球、🪐 小型大语言模型星球（1）、为什么要打开 /flag 😡（LD PRELOAD） |
-| [Ben "Pig" Chu](players/benpigchu/README.md) | 总排名第 11 名 | Hackergame 启动、猫咪小测、更深更暗、旅行照片 3.0 - 神秘奖牌、旅行照片 3.0 - 这是什么活动？、赛博井字棋、奶奶的睡前 flag 故事、组委会模拟器、虫、JSON ⊂ YAML?、Git? Git!、HTTP 集邮册、Docker for Everyone、惜字如金 2.0、🪐 高频率星球、🪐 小型大语言模型星球 - You Are Smart、流式星球、Komm, süsser Flagge、Komm, süsser Flagge、异星歧途、微积分计算小练习 2.0、逆向工程不需要 F5、O(1) 用户登录系统、小 Z 的谜题、不可加密的异世界 2 - 希尔混淆、不可加密的异世界 2 - 希尔之核 |
+| [Ben "Pig" Chu](players/benpigchu/README.md) | 总排名第 11 名 | Hackergame 启动、猫咪小测、更深更暗、旅行照片 3.0 - 神秘奖牌、旅行照片 3.0 - 这是什么活动？、赛博井字棋、奶奶的睡前 flag 故事、组委会模拟器、虫、JSON ⊂ YAML?、Git? Git!、HTTP 集邮册、Docker for Everyone、惜字如金 2.0、🪐 高频率星球、🪐 小型大语言模型星球 - You Are Smart、流式星球、Komm, süsser Flagge、为什么要打开 /flag 😡、异星歧途、微积分计算小练习 2.0、逆向工程不需要 F5、O(1) 用户登录系统、小 Z 的谜题、不可加密的异世界 2 - 希尔混淆、不可加密的异世界 2 - 希尔之核 |
 | [Suyun](players/Suyun/README.md) | 总排名第 144 名 | Hackergame 启动、猫咪小测、更深更暗、旅行照片 3.0、赛博井字棋、奶奶的睡前 flag 故事、组委会模拟器、虫、JSON ⊂ YAML?、Git? Git!、HTTP 集邮册（1）（2）、Docker for Everyone、惜字如金 2.0、🪐 高频率星球、🪐 小型大语言模型星球（1）、🪐 低带宽星球（1）、Komm, süsser Flagge（1）（2）、为什么要打开 /flag 😡（1） |
 
 ## 其他资源
