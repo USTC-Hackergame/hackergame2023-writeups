@@ -57,6 +57,7 @@
 | [mcfx](players/mcfx/wp.md) | 总排名第 1 名 | 全部题目 |
 | [Ciel](players/Ciel/writeup.md) | 总排名第 60 名 | Hackergame 启动、猫咪小测、更深更暗、旅行照片 3.0、赛博井字棋、奶奶的睡前 flag 故事、组委会模拟器、虫、JSON ⊂ YAML?、Git? Git!、HTTP 集邮册、Docker for Everyone、🪐 高频率星球、🪐 小型大语言模型星球（1、2）、🪐 流式星球、🪐 低带宽星球（1）、为什么要打开 /flag 😡（1）、异星歧途 |
 | [cvhc](players/cvhc/README.md) | 总排名第 41 名 | 旅行照片 3.0、Docker for Everyone、组委会模拟器、JSON ⊂ YAML?、HTTP 集邮册、惜字如金 2.0、🪐 高频率星球.md、🪐 流式星球、Komm, süsser Flagge、异星歧途、微积分计算小练习 2.0 |
+| [LiCaoZ](players/LiCaoZ/README.md) | 一般通过（ | Hackergame 启动、猫咪小测、更深更暗、赛博井字棋、虫、Git? Git!、🪐 低带宽星球 |
 
 ## 其他资源
 
