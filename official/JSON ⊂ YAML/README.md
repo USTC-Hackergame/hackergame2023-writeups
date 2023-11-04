@@ -92,3 +92,7 @@ RFC 8259 的表述更严格一些，它说：
 不，JSON 不是 YAML 1.2 的一个子集，而且用这个模块默认设置序列化 1e20 这个数字所产生的 JSON（`json.dumps(1e20)` 结果为 `1e+20`）也不能正确被 YAML 1.1 解析（会解析成字符串而非数字）。两个错误分别存在 [9 年多](https://github.com/simplejson/simplejson/blob/1ddfc5ace82f4fbda2a6a85c62a063ae45c94576/index.rst?plain=1#L127-L130)和 [17 年多](https://github.com/simplejson/simplejson/blob/27ece5964f2da82383ca24b128ecfca962baa93f/docs/index.html#L143-L144)了，simplejson, please fix.
 
 不过，抛开“JSON 的超集”这个谎言不谈，YAML 还是个不错的选择，比较适合用于自己写的程序的配置文件。只要确保你用的是一个 YAML 1.2 的库，很多老生常谈的问题（例如 `country: no` 或 `port: 22:22`）都不会出现。JSON 也确实几乎都是合法的 YAML 1.2，所以不确定 YAML 该怎么写的时候可以用 JSON 的写法写，对于简单的小程序的配置文件这个需求来说够用了。
+
+## 补充
+
+赛后看 QQ 群里的讨论，出题人才意识到输入 `NaN` 或 `Infinity` 也能拿到一个 flag。这和本题想考的知识点完全无关，因为这是 Python 的 `json.loads` 额外支持的非标准的功能，JSON 标准中没有这种东西。明明每次用 `json.dumps` 的时候都记得这回事的（因为它有一个叫 `allow_nan` 的参数控制是否启用这一行为），但用 `json.loads` 的时候就忘了（它文档没说，并且也不好禁用这个行为），好气啊。
