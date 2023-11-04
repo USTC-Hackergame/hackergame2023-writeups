@@ -63,6 +63,7 @@
 | [huige233](players/huige233/wp.md) | 总排名 27 名 | Hackergame 启动、猫咪小测、更深更暗、旅行照片 3.0、赛博井字棋、奶奶的睡前 flag 故事、组委会模拟器、虫、JSON ⊂ YAML?、Git? Git!、HTTP 集邮册、Docker for Everyone、🪐 高频率星球、🪐 小型大语言模型星球（1、2）、🪐 流式星球、🪐 低带宽星球（1）、Komm, süsser Flagge、为什么要打开 /flag 😡、异星歧途、微积分计算小练习 2.0、小 Z 的谜题（1） |
 | [溴化锂](players/LiBr/writeup.md) | 总榜 115 名 | 启动、猫咪小测、更深更暗、旅行照片3.0、赛博井字棋、奶奶的睡前flag故事、组委会模拟器、虫、JSON ⊂ YAML?、Git? Git!、HTTP 集邮册、Docker for Everyone、🪐 高频率星球、🪐 小型大语言模型星球（1）、🪐 流式星球、🪐 低带宽星球（1）、为什么要打开 /flag 😡、异星歧途 |
 | [mobyw](players/mobyw/README.md) | 其他解法 | 猫咪小测、旅行照片 3.0、组委会模拟器 |
+| [optimize-2](players/optimize-2/writeup.md) | 我有 13 个状态码！总排名 75 名 | Hackergame 启动、猫咪小测、更深更暗、旅行照片 3.0、赛博井字棋、奶奶的睡前 flag 故事、组委会模拟器、虫、JSON ⊂ YAML?、Git? Git!、HTTP 集邮册、Docker for Everyone、惜字如金 2.0、🪐 高频率星球、🪐 小型大语言模型星球（1、2）、🪐 流式星球、🪐 低带宽星球（1）、Komm, süsser Flagge（1、2）、为什么要打开 /flag 😡（1）、异星歧途 |
 
 ## 其他资源
 
