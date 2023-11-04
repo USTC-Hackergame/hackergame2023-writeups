@@ -6,7 +6,7 @@ CC BY-NC-SA 3.0
 
 
 历年题解：  
-- [2023](https://blog.huggy.moe/posts/2022/14-ustclug-ctf-writeup/)
+- [2022](https://blog.huggy.moe/posts/2022/14-ustclug-ctf-writeup/)
 - [2021](https://blog.huggy.moe/posts/2021/14-ustclug-ctf-writeup/)
 - [2020](https://blog.huggy.moe/posts/2020/15-ustclug-ctf-writeup/)
 - [2019](https://blog.huggy.moe/posts/2019/3-ustclug-ctf-writeups/)
