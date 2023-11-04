@@ -59,6 +59,7 @@
 | [cvhc](players/cvhc/README.md) | 总排名第 41 名 | 旅行照片 3.0、Docker for Everyone、组委会模拟器、JSON ⊂ YAML?、HTTP 集邮册、惜字如金 2.0、🪐 高频率星球.md、🪐 流式星球、Komm, süsser Flagge、异星歧途、微积分计算小练习 2.0 |
 | [LiCaoZ](players/LiCaoZ/README.md) | 一般通过（ | Hackergame 启动、猫咪小测、更深更暗、赛博井字棋、虫、Git? Git!、🪐 低带宽星球 |
 | [Mivik](players/Mivik/wp.md) | 总排名第 2 名 | 全部题目 - 链上猎手、旧日之影 |
+| [LetianYuan](players/LetianYuan) |  总排名第31名 | 为什么要打开 /flag 😡的第一小问的非预期解 以及其他题目 |
 
 ## 其他资源
 
