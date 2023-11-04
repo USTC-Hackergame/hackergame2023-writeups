@@ -26,7 +26,9 @@ Q4 🥒🥒🥒：「我……从没觉得写类型标注有意思过」。在�
 a=[];for(let i of document.querySelectorAll("tr > td:nth-child(2)"))a.push(i.innerText);b=[];a.map(e=>{console.log(e);break;if(e.length==4 || 1)b.push(e)})
 ```
 这时又暴露出了我的短板，没注意审题，以为满足条件的会议都是四字英文字母（
-好在后面发现并改正了，这是后话了。接下来，在猫咪小测网页运行如下代码，开始测试：
+好在后面发现并改正了，这是后话了。
+
+接下来，在猫咪小测网页运行如下代码，开始测试：
 ```js
 // 在此处粘贴入复制的会议列表，之所以使用prompt()是不想在浏览器控制台历史记录增添乱七八糟的条目（
 
@@ -191,7 +193,7 @@ document.addEventListener('keydown', function (event) {
         	<rect x="314" width="426" height="1024" fill="#4edb0a"/>
         	<rect x="740" width="284" height="1024" fill="#44d404"/>
         </svg>
-        <svg viewBox="1024 1024"><path d="M0 0h314v1024H0z" fill="#5CABC1"/>	<path d="M314 0h426v1024H314z" fill="#4EDB0A"/><path d="M740 			0h284v1024H740z" fill="#44D404"/></svg>
+        <svg viewBox="1024 1024"><path d="M0 0h314v1024H0z" fill="#5CABC1"/> <path d="M314 0h426v1024H314z" fill="#4EDB0A"/><path d="M740 0h284v1024H740z" fill="#44D404"/> </svg>
     ```
 
 
@@ -219,6 +221,8 @@ document.addEventListener('keydown', function (event) {
 - 本人博客 https://blog.ryancc.top
 
 - 本人Telegram频道 https://t.me/rych0814
+
+- （如果您恰好需要联系本人，可选择在频道内留言，或跟踪我的Github主页，不便敬请谅解）
 
 - （唉，技术没涨，人倒越来越懒了，博文懒得写，一般在技术探索中碰到的小tips就直接发频道了，最近正在试用[usememos/memos](usememos/memos)，希望它可以帮助我记录日常所思所想）
 
