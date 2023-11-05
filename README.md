@@ -98,7 +98,7 @@
 | [Vifly](players/Vifly/writeups.md) | 总排名前 300 | Hackergame 启动、猫咪小测、更深更暗、旅行照片 3.0(1,2)、赛博井字棋、奶奶的睡前 flag 故事、组委会模拟器、虫、JSON ⊂ YAML?(1)、Git? Git!、HTTP 集邮册(1)、Docker for Everyone、惜字如金 2.0、🪐 高频率星球、🪐 小型大语言模型星球(1)、为什么要打开 /flag 😡(1) |
 | [mariodon](players/mariodon/README.md) | 总排名第 25 名 | Hackergame 启动、猫咪小测、更深更暗、旅行照片 3.0、赛博井字棋、奶奶的睡前 flag 故事、组委会模拟器、虫、JSON ⊂ YAML?、Git? Git!、HTTP 集邮册、Docker for Everyone、惜字如金 2.0、🪐 高频率星球、🪐 小型大语言模型星球(1,2)、🪐 流式星球、🪐 低带宽星球（小试牛刀）、Komm, süsser Flagge、为什么要打开 /flag 😡、异星歧途、微积分计算小练习 2.0、逆向工程不需要 F5 |
 | [H3arn](players/H3arn/README.md) | 总排名第 53 名 | Hackergame 启动、更深更暗、赛博井字棋、组委会模拟器、虫、Git? Git!、惜字如金 2.0、🪐 流式星球、Komm, süsser Flagge、异星歧途 |
-
+| [piscesciurus](players/piscesciurus/README.md) | 总排名第 15 名 | Hackergame 启动、猫咪小测、更深更暗、旅行照片 3.0、赛博井字棋、奶奶的睡前 flag 故事、组委会模拟器、虫、JSON ⊂ YAML?、Git? Git!、HTTP 集邮册、Docker for Everyone、惜字如金 2.0、🪐 高频率星球、🪐 小型大语言模型星球（1、2）、🪐 流式星球、🪐 低带宽星球、Komm, süsser Flagge、为什么要打开 /flag 😡（1）、异星歧途、微积分计算小练习 2.0、O(1) 用户登录系统、小 Z 的谜题 |
 
 ## 其他资源
 
