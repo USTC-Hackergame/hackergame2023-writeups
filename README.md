@@ -94,6 +94,7 @@
 | [KaguyaHana](players/KaguyaHana/README.MD) | 总排名第 57 名 全靠ChatGPT | Hackergame 启动、猫咪小测、更深更暗、旅行照片 3.0、赛博井字棋、奶奶的睡前 flag 故事、组委会模拟器、虫、JSON ⊂ YAML?、Git? Git!、HTTP 集邮册、Docker for Everyone、惜字如金 2.0、🪐 高频率星球、🪐 小型大语言模型星球(1,2)、🪐 流式星球、🪐 低带宽星球(1)、Komm, süsser Flagge(1,2)、为什么要打开 /flag 😡(1)、异星歧途、 小 Z 的谜题(1)|
 | [henry_y](players/henry_y/README.md) | 总排名第58名 | Hackergame 启动、猫咪小测、更深更暗、旅行照片 3.0、赛博井字棋、奶奶的睡前 flag 故事、组委会模拟器、虫、JSON ⊂ YAML?、Git? Git!、HTTP 集邮册、Docker for Everyone、惜字如金 2.0、🪐 高频率星球、🪐 小型大语言模型星球(1,2)、🪐 流式星球、🪐 低带宽星球(1)、Komm, süsser Flagge(1,2)、为什么要打开 /flag 😡(1)、异星歧途 |
 | [yezhiyi9670](players/yezhiyi9670/README.md) | 总排名第 49 名 过于详细版 | Hackergame 启动、猫咪小测、更深更暗、旅行照片 3.0、赛博井字棋、奶奶的睡前 flag 故事、组委会模拟器、虫、JSON ⊂ YAML?、Git? Git!、HTTP 集邮册、Docker for Everyone、惜字如金 2.0、🪐 高频率星球、🪐 小型大语言模型星球(1,2)、🪐 流式星球、🪐 低带宽星球(1)、Komm, süsser Flagge(1,2非预期)、为什么要打开 /flag 😡(1)、异星歧途、微积分计算小练习 2.0(非预期) |
+| [Cyunrei](players/Cyunrei/README.md) | 总排名第 56 名 | Hackergame 启动、猫咪小测、更深更暗、旅行照片 3.0、赛博井字棋、奶奶的睡前 flag 故事、组委会模拟器、虫、JSON ⊂ YAML?、Git? Git!、HTTP 集邮册、Docker for Everyone、惜字如金 2.0、🪐 高频率星球、🪐 小型大语言模型星球(1,2)、🪐 流式星球、🪐 低带宽星球(1)、Komm, süsser Flagge、为什么要打开 /flag 😡(1)、异星歧途 |
 
 ## 其他资源
 
