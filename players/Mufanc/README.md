@@ -252,7 +252,7 @@ GET /\n\n
 
 * 100 Continue
 
-指定一个 `Expect: 100-continue` https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Expect
+指定一个 `Expect: 100-continue`（参考 [MDN](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Expect)）
 
 ## Docker For Everyone
 
