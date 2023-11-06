@@ -320,3 +320,7 @@ print(len(response))
 前两组我都是遍历的，值得一提的是我好像注意到第二组的最后一个开关会导致第三组开关那一部分的冷却液流失，所以相当于少遍历了一个bit。
 
 具体什么道理看[官方Writeup](https://github.com/USTC-Hackergame/hackergame2023-writeups/blob/master/official/%E5%BC%82%E6%98%9F%E6%AD%A7%E9%80%94/README.md)吧，简单看了一下，觉得如果自己知道怎么查看逻辑相关的东西的话，应该很好做出来，感觉有点依赖于游戏熟悉程度了（具体细节我就不再探索了，如果是MineCraft我可能会看一下，我就这么双标🤪）。
+
+# 后记
+
+[我的博客](https://mirageturtle.github.io/2023/11/hackergame-2023-writeup/)也会同步更新，不过差别不太大，可能会多有一些自己的小思考和碎碎念。因为太菜了所以放最后hhh
