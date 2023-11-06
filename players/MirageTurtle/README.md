@@ -37,11 +37,11 @@
 
 在参观完博物馆后，学长陪你走到了上野站。你们都感到有些不舍，但知道每次的分别也是为了下次更好的相聚。 **学长那天晚上将继续他的学术之旅，打算乘船欣赏东京的迷人夜景和闪耀的彩虹大桥（Rainbow Bridge）。** 而你则搭乘了**开往马里奥世界的电车**，在那里度过了一段欢乐的时光。~~这一段是我写Writeup时注意到的，做题时没注意到结果也稀里糊涂做出来了。~~
 
-![Nobel Prize](./images/hg23/travel-photo/nobel-prize.jpeg)
+![Nobel Prize](./images/travel-photo/nobel-prize.jpeg)
 
-![Ramen Shop](./images/hg23/travel-photo/ramen-shop.jpeg)
+![Ramen Shop](./images/travel-photo/ramen-shop.jpeg)
 
-![Ueno Park](./images/hg23/travel-photo/ueno-park.jpeg)
+![Ueno Park](./images/travel-photo/ueno-park.jpeg)
 
 1. 你还记得与学长见面这天是哪一天吗？（格式：yyyy-mm-dd）
 2. 在学校该展厅展示的所有同种金色奖牌的得主中，出生最晚者获奖时所在的研究所缩写是什么？
