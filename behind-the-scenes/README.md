@@ -242,6 +242,12 @@ Flag 提交框不能执行命令：
 
 ![5](assets/IMG_0369.jpg)
 
+### 计算器使用说明书 2.0
+
+（原作者：[piscesciurus](../players/piscesciurus/微积分计算小练习.pdf)）
+
+![计算器使用说明书](assets/fx-991CN-X.png)
+
 ### 多夸夸
 
 ![多夸夸](assets/5EDB7F6F-42B1-4971-8141-59228B114122.jpg)
