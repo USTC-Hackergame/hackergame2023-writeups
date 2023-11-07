@@ -7,15 +7,15 @@ Scored 4650, Ranked 51
 ## Hackergame 启动
 每年的经典签到题, 熟练的 F12 启动, 随便录制一段提交, 发现 chrome 顶部地址栏直接跳转到了 `https://cnhktrz3k5nc.hack-challenge.lug.ustc.edu.cn:13202/?similarity={similarity}` 直接把 similarity 改成 9999 然后回车就能看到下图:
 
-![get flag](img/get flag.png)
+![get flag](img/get%20flag.png)
 
 直接获取flag:
 
-![Genshin Impact Start](img/Genshin Impact Start.png)
+![Genshin Impact Start](img/Genshin%20Impact%20Start.png)
 
 不对是这张 (:
 
-![Hackergame Start](img/Hackergame Start.png)
+![Hackergame Start](img/Hackergame%20Start.png)
 
 然后复制提交一把梭, 一看排名20+(悲).
 
@@ -26,7 +26,7 @@ Scored 4650, Ranked 51
 
 Google 搜索[中科大图书馆](https://lib.ustc.edu.cn/), 尝试直接搜索书名号中的内容, 结果没查到书. 然后截取 A Classical Introduction To Modern Number Theory 搜索, 第一个结果就是世界图书出版公司出版的, 点击查看馆藏, 能看到 ![img](http://opac.lib.ustc.edu.cn/tpl/images/place_marker.gif)西区外文书库.
 
-![image-20231104180806096](C:\Users\Simplxs\AppData\Roaming\Typora\typora-user-images\image-20231104180806096.png) 
+![Book](img/Book.png) 
 
 但我当时直接单击西区外文书库, 发现不能打开, 而且楞是没发现只要把鼠标移动到上面就能显示楼层. 到处搜索西区外文书库无果, 直接抄起 python 爆破.
 
@@ -139,9 +139,9 @@ Google 搜索"日本 诺贝尔奖", 转到[维基百科](https://zh.wikipedia.or
 
 ![News](img/News.png)
 
-![Time Table](img/Time Table.png)
+![Time Table](img/Time%20Table.png)
 
-![Photo Grallery](C:\Users\Simplxs\AppData\Roaming\Typora\typora-user-images\Photo Grallery.png)
+![Photo Grallery](img/Photo%20Grallery.png)
 
 ![Banquet](img/Banquet.png)
 
@@ -153,11 +153,11 @@ Google 搜索"日本 诺贝尔奖", 转到[维基百科](https://zh.wikipedia.or
 
 至于博物馆门票, 谷歌地图上有写, 但是我这显示的是美元.
 
-![Tokyo National Museum](img/Tokyo National Museum.png)
+![Tokyo National Museum](img/Tokyo%20National%20Museum.png)
 
 不过没关系, 点击 Admission 中的第一个进入[博物馆官网](https://www.tnm.jp/modules/r_free_page/index.php?id=113#access_01), 就能找到价格表了.
 
-![Museum Ticket](img/Museum Ticket.png)
+![Museum Ticket](img/Museum%20Ticket.png)
 
 <del>所以第四题答案为 *500*</del>. 嗯, 本来应该是这样的, 但是当我提交时却显示答案错误, 再试一试 1000, 阿巴阿巴, 还是答案错误. 合理推测应该是某种原因免费了或者不是他付的钱, 试一试输入 *0*, 然后. 嗯, 过了.
 
@@ -232,7 +232,7 @@ print(res.json())
 ## Git? Git!
 谷歌搜索"git 恢复撤销的commit", 可以找到[文章](https://www.jianshu.com/p/21fdec09a8eb).
 
-![Revert Commit](img/Revert Commit.png)
+![Revert Commit](img/Revert%20Commit.png)
 
 ```bash
 > git reflog
@@ -558,7 +558,7 @@ int main()
 
 重新打开游戏, 新开一个存档, 在第一组按钮周围找到微型处理器, 点击编辑查看.
 
-![Micro Processor 1](img/Micro Processor 1.png)
+![Micro Processor 1](img/Micro%20Processor%201.png)
 
 伪代码如下:
 
@@ -667,7 +667,7 @@ if (!result)
 
 第四组很普通的代码很普通, 逻辑集中在焚化炉, 蒸汽发电机等等上. 简单尝试以后发现是简单的与门, 反门的组合, 随便试试就能得出结果, 答案为 *01110111*.
 
-![Logic Gate Circuit](img/Logic Gate Circuit.png)
+![Logic Gate Circuit](img/Logic%20Gate%20Circuit.png)
 
 ## 微积分计算小练习 2.0
 
@@ -706,11 +706,11 @@ if (!result)
 
 首先直接上 IDA, 进行一个 F5 的摁. 然后 emmm, 什么玩意(掀桌).
 
-![F5 1](img/F5 1.png)
+![F5 1](img/F5%201.png)
 
 还是回去看汇编吧.
 
-![ASM 1](img/ASM 1.png)
+![ASM 1](img/ASM%201.png)
 
 大致看一眼就能发现, 开头比较了`flag{}`的标识后就进入了 n 多循环. 其中参杂了很多的函数调用和 dll 调用, 看起来非常复杂, 很明显, IDA 对于这种 大量调用 dll 方法的程序没什么好办法. 但是进入 dll 函数内部一看, 基本都是执行的很简单的命令.
 
@@ -718,11 +718,11 @@ if (!result)
 
 然后经过一些骚操作编译出 exe, 再次 IDA 启动!
 
-![ASM 2](img/ASM 2.png)
+![ASM 2](img/ASM%202.png)
 
 看起来逻辑上没什么问题, 再来看看 F5 吧!
 
-![F5 2](img/f5 2.png)
+![F5 2](img/f5%202.png)
 
 逻辑清晰, 基本没有问题, 稍微修改一下得到源程序:
 
