@@ -1,6 +1,6 @@
 # 旧日之痕
 
-题解作者：[NAME](GITHUB URL)
+题解作者：[emc2314](https://github.com/emc2314/)
 
 出题人、验题人、文案设计等：见 [Hackergame 2023 幕后工作人员](https://hack.lug.ustc.edu.cn/credits/)。
 

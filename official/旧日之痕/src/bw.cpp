@@ -42,10 +42,6 @@ static const uint8_t b64idx[256] = {
 
 void encode(Function &F, __int128_t cantor) {
   //assert(cantor >= 0);
-  //std::bitset<64> temp1(cantor >> 64);
-  //std::bitset<64> temp2(cantor);
-  //std::cerr << temp1 << temp2 << "\n";
-  //errs() << (uint64_t)cantor << "\n";
 
   std::vector<BasicBlock *> allBB;
   for (BasicBlock &tmp : F) {
@@ -53,7 +49,6 @@ void encode(Function &F, __int128_t cantor) {
       allBB.push_back(&tmp);
   }
 
-  //errs() << F.getName() << " " << allBB.size() << "\n";
   uint8_t fsize =
       allBB.size() > sizeof(cantor_bitlen) ? sizeof(cantor_bitlen) : allBB.size();
   std::vector<uint8_t> expansion(fsize, 0), index(fsize, 0), validi(fsize - 1);
@@ -69,11 +64,6 @@ void encode(Function &F, __int128_t cantor) {
     index[i] = validi[expansion[fsize - i - 1]];
     validi.erase(validi.begin() + expansion[fsize - i - 1]);
   }
-
-  //for (i = 0; i < fsize; i++) {
-  //  errs() << (int)index[i] << ' ';
-  //}
-  //errs() << '\n';
 
   for (i = 1; i < fsize; i++) {
     allBB[index[i]]->moveAfter(allBB[index[i - 1]]);
@@ -129,11 +119,6 @@ struct BinaryWatermark : PassInfoMixin<BinaryWatermark> {
       errs() << "Invalid watermark string!\n";
       return PreservedAnalyses::all();
     }
-    //errs() << bw.size() << "\n";
-    //for (int b : bw) {
-    //  errs() << b << " ";
-    //}
-    //errs() << "\n";
     uint32_t capacity = 0;
     std::vector<Function *> functions;
     for (Function &F : M) {
