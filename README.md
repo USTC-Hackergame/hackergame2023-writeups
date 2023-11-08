@@ -109,6 +109,7 @@
 | [Das Schloß](players/das_schloss/hg.md) | 总排名第2382名（雾 | Hackergame 启动、猫咪小测、更深更暗、旅行照片 3.0、赛博井字棋、奶奶的睡前 flag 故事、组委会模拟器、虫、JSON ⊂ YAML?、Git? Git!、HTTP 集邮册、Docker for Everyone、惜字如金 2.0、🪐 高频率星球、🪐 小型大语言模型星球(1,2)、🪐 流式星球、🪐 低带宽星球(1)、Komm, süsser Flagge(1,2)、为什么要打开 /flag 😡、异星歧途、逆向工程不需要 F5、O(1) 用户登录系统、<del>It's MyCalculator!!!!!</del>、黑客马拉松、不可加密的异世界 2(1,2) |
 | [Hwylzeus](players/Hwylzeus/README.md) | 总排名第184名 | Hackergame 启动、猫咪小测、更深更暗、旅行照片 3.0、赛博井字棋、奶奶的睡前 flag 故事、组委会模拟器、虫、JSON ⊂ YAML?(1)、Git? Git!、HTTP 集邮册(1)、Docker for Everyone、惜字如金 2.0、🪐 高频率星球、🪐 小型大语言模型星球(1,2)、🪐 流式星球、🪐 低带宽星球(1)、异星歧途 |
 | [MCU](players/mcu/wp.md) | 总排名第 35 名 | Hackergame 启动、猫咪小测、更深更暗、旅行照片 3.0、赛博井字棋、奶奶的睡前 flag 故事、组委会模拟器、虫、JSON ⊂ YAML?、Git? Git!、HTTP 集邮册、Docker for Everyone、惜字如金 2.0、🪐 高频率星球、🪐 小型大语言模型星球(1,2)、🪐 流式星球、🪐 低带宽星球（小试牛刀）、Komm, süsser Flagge、为什么要打开 /flag 😡（LD_PRELOAD, love!）、异星歧途、逆向工程不需要 F5 |
+| [Sxrhhh](players/Sxrhhh/README.md) | 总排名第 316 名 | Hackergame 启动、猫咪小测、更深更暗、旅行照片 3.0(1)、赛博井字棋、组委会模拟器、虫、JSON ⊂ YAML?、Git? Git!、HTTP 集邮册(1)、Docker for Everyone、惜字如金 2.0、🪐 高频率星球、🪐 小型大语言模型星球(1)、🪐 低带宽星球（小试牛刀）|
 
 ## 其他资源
 
