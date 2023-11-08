@@ -81,9 +81,24 @@
 > 如果你不知道 `nc` 是什么，或者在使用上面的命令时遇到了困难，可以参考我们编写的 [萌新入门手册：如何使用 nc/ncat？](https://lug.ustc.edu.cn/planet/2019/09/how-to-use-nc/)
 ## 题解
 
-这道题源自于之前学密码学时一直存在的一些疑惑：首先是为什么没怎么听说过密码学安全的随机数发生器（CSPRNG）算法的名字？有很多著名的 PRNG 算法，除去 LCG、MT19937，还有一些 xorshift 系列和 PCG 系列的算法，但是他们都不是密码学安全的。我们也知道很多签名算法，比如 ECDSA、Schnorr，还有很多对称加密的算法，比如 DES、AES、Twofish，我们也听说过很多 Hash 算法的名字，比如 MD5、SHA-1、SHA256、SHA-3 等等。许多密码学算法都是通过长年的比赛而选出来的，比如 AES、SHA-3、AEGIS-128、Salsa-20、Argon2、CRYSTALS-Kyber 等等。但是我们似乎从未见过设计 CSPRNG 的比赛，以至于在现实中似乎大家都在想当然的实现自己的版本，比如 Linux kernel 在 4.8 版本之前使用了一个自制的 TGFSR 作为 Mixing Function，然后使用 SHA-1 构造了一个 Feedback-Extract 的结构来产生输出。
+这道题源自于之前学密码学时一直存在的一些疑惑：为什么没怎么听说过密码学安全的随机数发生器（CSPRNG）算法的名字？我们知道有很多著名的 PRNG 算法，除去 LCG、MT19937，还有一些 xorshift 系列和 PCG 系列的算法，但是他们都不是密码学安全的。我们也知道很多签名算法，比如 ECDSA、Schnorr，还有很多对称加密的算法，比如 DES、AES、Twofish，我们也听说过很多 Hash 算法的名字，比如 MD5、SHA-1、SHA256、SHA-3 等等。许多密码学算法都是通过长年的比赛而选出来的，比如 AES、SHA-3、AEGIS-128、Salsa-20、Argon2、CRYSTALS-Kyber 等等。但是我们似乎从未见过设计 CSPRNG 的比赛，以至于在现实中似乎大家都在想当然地实现自己的版本，比如 Linux kernel 在 4.8 版本之前长期使用着一个自制的 TGFSR 作为 Mixing Function，然后使用 SHA-1 构造了一个 Feedback-Extract 的结构来产生输出，这种临时构造的复杂且没有被广泛研究分析的算法在密码学中往往都是以反面教材出现的。
 
-当然我们知道，一个安全的 stream cipher 就是天然的一个 CSPRNG。除此之外，使用 block cipher 的 counter mode 也可以产生安全的随机数，这在 NIST SP 800-90A 中被称为 CTR_DRBG。这个标准中还提出了 HMAC_DRBG 和 HASH_DRBG。这里留下一个思考题：为什么不使用 HASH_DRBG 来做 stream cipher 呢？如果是因为 HASH_DRBG 太慢的话，为什么实践中不使用安全的 stream cipher 来产生随机数而要制定这些 DRBG 标准呢？
+当然我们知道，一个安全的 stream cipher 就是天然的一个 CSPRNG。除此之外，使用 block cipher 的 counter mode 也可以产生安全的随机数，这在 NIST SP 800-90A 中被称为 CTR_DRBG。这个标准中还提出了 HMAC_DRBG 和 HASH_DRBG。这里留下一个思考题：为什么不使用 HASH_DRBG 来做 stream cipher 呢？如果是因为 HASH_DRBG 太慢的话，为什么实践中不使用安全的 stream cipher 来产生随机数而要制定这些不同的 DRBG 标准呢？
 
-[UNDER CONSTRUCTION]
-Exp 见 [src 文件夹](./src/)
+在了解这些标准之后，我们会很自然有一些思考：这些标准往往都基于 Hash 函数或者 Block Cipher 本身的安全性。我们知道密码学上这些算法之所以安全的原因就是目前没有找到攻击的手段。在过去的这么多年，许多原本以为安全的算法都被找到了薄弱之处，比如当年的 DES 和 MD5。那么有没有可能，设计一个算法的安全性可以证明等价与解决一个已知的数学难题呢？如 RSA，ECDSA 这些公钥密码学一样。
+
+如果有比较扎实的密码学基础的同学，应该学过 One Way Function、PRG、PRF、Block Cipher 之间的相互构造方法，这里举 [Topics in Cryptography](https://crypto.stanford.edu/cs355/23sp/) 课程讲义中的一个示意图：
+
+![image](https://github.com/emc2314/hackergame2023-writeups/assets/14357110/9bfae421-96e2-4459-9167-4bc995d1e455)
+
+我们可以这样一步步从 OWF（比如大质数相乘）中得到一个“hardcore bit”，再按照这些定理构造出一个 PRNG，甚至可以继续向后构造出一个基于大整数分解问题的对称加密算法。但是这样得到的算法过于低效，并没有太多实用价值。我们可不可以更贪心一点，从 OWF 中多拿一点数据，而不是只拿被证明安全的那个“hardcore bit”呢？一个非常著名的例子，就是同样在 NIST SP 800-90A 中被标准化的 Dual_EC_DRBG 了。这个算法确实证明了其安全性，但是却有非常明显的另一个问题：可以被植入后门。也就是说，如果使用了标准指定的数据，那么标准制定方就可以轻易获取到 PRNG 的内部状态。
+
+Dual EC 不仅出现在 NIST 的标准中，还出现在同样由 NSA 参与的 ISO 18031 标准。而这个标准中则出现了另一个同样基于数论难题的 DRBG 算法：Micali-Schnorr Generator。只是，这个算法会不会也被植入了后门呢？NSA 在密码学的一些领域确实领先不少，当年 DES 在差分分析于学术界中出现之前就在设计中加入了对抗差分分析的考虑，几条椭圆曲线的参数设计中使用了未被解释的 Hash seed 也令人怀疑其中是否有一些刻意设计。那么这个基于 RSA 的 DRBG 算法有多少可能可以被设计出后门来呢？本题目便源于一篇 RWC 2023 上研究这个的论文：[On the Possibility of a Backdoor in the Micali-Schnorr Generator](https://eprint.iacr.org/2023/440)。作为常年的 Hackergame 出题人，一般是不太会希望出论文题的，但是这个问题实在是非常精彩有趣，也想拿出来请诸位选手尝试一番。
+
+题目本身并不复杂，两道题目对应了论文里两种算法的后门。具体的攻击方法可以看看论文以及 files 文件夹下的 exp 代码。但是他们的攻击思想是非常共通的：让多个 unknown internal state 之间产生一个低指数的多项式关系，而后利用 coppersmith 算法和 DRBG 的输出从而解出完整的内部状态。没有学过 coppersmith 攻击的同学倒是可以借用这次机会简单了解一下。具体到解这道题的话，可能难点会在于构造出满足要求的 p q e，我的方法大概就是随机生成然后 ECM 分解出小因子（我们知道很多亚指数复杂度的大整数分解方法，比如 MPQS 是 L(1/2)，更快的 NFS 是 L(1/3)。他们都是对被分解数 N 的复杂度。但是如果 N 中有很小的质因子的话，可以使用 ECM 这种对 p 是 L(1/2) 复杂度的算法）。当然论文有趣的地方很多，还是建议自己阅读一遍，比如他们量化了后门被发现的难度，在他们称之为 SUS attack 的方法中，这一点体现在更远更长的多项式关系。除此之外，他们还给出了一个非常神奇的例子：“Nothing up my sleeve” parameters。在密码学中这个概念指的是一些常数是完全没有任何设计，比如 md5 中常数是由正弦函数计算得出的。在论文的例子中：
+
+![image](https://github.com/emc2314/hackergame2023-writeups/assets/14357110/a2eb1131-671c-4829-b420-20972b8f0074)
+
+加密指数 e 是 π 的同时，解密指数 d 却是 5 这么小的数。如果根据 e 和 d 来分解 N 的话，还能发现 p 和 q 基本等长。如何从 “Nothing up my sleeve” parameters 的 e 生成出 N 保证 d 非常小呢？直接试图分解 e*d-1 的话可能需要非常久的时间。如果有同学感兴趣的话可以尝试一下。
+
+最后，题目的解法，也就是 RSA based DRBG 的 backdoor 方法远不止论文中提到的几种。在本题的限制条件下，有很多选手都构造出精彩的解法，大家也可以多多阅读其他选手的 writeup。作为出题人，非常感谢大家花费精力解出或者试图去做这道题，也非常钦佩自己能够独立想出各种后门的同学。

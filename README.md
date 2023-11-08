@@ -44,9 +44,9 @@
 | [链上猎手](official/链上猎手/README.md) | [文件](official/链上猎手/files/) |
 | [It's MyCalculator!!!!!](official/It's%20MyCalculator!!!!!/README.md) | [文件、源代码](official/It's%20MyCalculator!!!!!/src) |
 | [小 Z 的谜题](official/小%20Z%20的谜题/README.md) | [文件](official/小%20Z%20的谜题/files/) |
-| [黑客马拉松（部分完成）](official/黑客马拉松/README.md) | [文件、源代码](official/黑客马拉松/src) |
+| [黑客马拉松](official/黑客马拉松/README.md) | [文件、源代码](official/黑客马拉松/src) |
 | [不可加密的异世界 2](official/不可加密的异世界%202/README.md) | [文件](official/不可加密的异世界%202/files/) |
-| [旧日之痕（部分完成）](official/旧日之痕/README.md) | [文件、源代码](official/旧日之痕/src) |
+| [旧日之痕](official/旧日之痕/README.md) | [文件、源代码](official/旧日之痕/src) |
 
 ### 来自选手
 
