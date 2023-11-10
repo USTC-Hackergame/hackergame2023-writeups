@@ -731,3 +731,9 @@ int main() {
     return 0;
 }
 ```
+
+## 异星歧途
+
+观察 + 多试即可，注意顺序避免钍反应堆爆炸
+
+![](images/mindustry.png)
