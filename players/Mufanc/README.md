@@ -304,6 +304,32 @@ cod_dict += ['#ty9kxborszstguyd?!blm-p']
 
 ## 🪐 流式星球
 
+虽然不知道视频具体的长宽和帧数，但观察代码可以发现 bin 文件实际上是按照一帧一帧的顺序排列的。于是可以在一个合理的范围内枚举宽度，手动观察输出图像是否合理来确定实际宽度
+
+```py
+import cv2
+import numpy as np
+
+video = np.fromfile('video.bin', dtype=np.uint8)[:100000]
+
+for w in range(200, 1000):
+    h = len(video)  // w // 3
+    cv2.imwrite(f'images/{w}.png', video[: w * h * 3].reshape((h, w, 3)))
+```
+
+观察所有输出，得到视频宽度为 427px，将代码中的 `[:100000]` 去掉再跑即可得到一张长图，可以在图片中找到 flag
+
+```py
+import cv2
+import numpy as np
+
+video = np.fromfile('video.bin', dtype=np.uint8)
+
+for w in (427,):
+    h = len(video)  // w // 3
+    cv2.imwrite(f'images/{w}.png', video[: w * h * 3].reshape((h, w, 3)))
+```
+
 ## 🪐 低带宽星球
 
 ### 小试牛刀
