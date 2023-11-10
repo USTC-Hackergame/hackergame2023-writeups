@@ -1,0 +1,109 @@
+From 4d495e524e8fe7c79b445e25bc6c09e0d292c955 Mon Sep 17 00:00:00 2001
+From: GalaxySnail <me@glxys.nl>
+Date: Sun, 29 Oct 2023 17:29:25 +0800
+Subject: [PATCH] test yaml parsers on json
+
+---
+ parsers/test_ruamel.py | 23 +++++++++++++++++++++++
+ parsers/test_yaml.py   | 23 +++++++++++++++++++++++
+ python_only.json       |  1 +
+ run_tests.py           | 15 +++++++++++++++
+ 4 files changed, 62 insertions(+)
+ create mode 100755 parsers/test_ruamel.py
+ create mode 100755 parsers/test_yaml.py
+ create mode 100644 python_only.json
+
+diff --git a/parsers/test_ruamel.py b/parsers/test_ruamel.py
+new file mode 100755
+index 0000000..0463d8f
+--- /dev/null
++++ b/parsers/test_ruamel.py
+@@ -0,0 +1,23 @@
++#!/usr/bin/env python
++
++import sys
++import ruamel.yaml
++
++
++def parse_file(path):
++
++    with open(path, 'r') as f:
++
++        data = f.read()
++
++        try:
++            o = ruamel.yaml.safe_load(data)
++        except Exception as e:
++            sys.exit(1)
++
++
++if __name__ == "__main__":
++    path = sys.argv[1]
++    parse_file(path)
++
++    sys.exit(0)
+diff --git a/parsers/test_yaml.py b/parsers/test_yaml.py
+new file mode 100755
+index 0000000..ae02bbe
+--- /dev/null
++++ b/parsers/test_yaml.py
+@@ -0,0 +1,23 @@
++#!/usr/bin/env python
++
++import sys
++import yaml
++
++
++def parse_file(path):
++
++    with open(path, 'r') as f:
++
++        data = f.read()
++
++        try:
++            o = yaml.safe_load(data)
++        except Exception as e:
++            sys.exit(1)
++
++
++if __name__ == "__main__":
++    path = sys.argv[1]
++    parse_file(path)
++
++    sys.exit(0)
+diff --git a/python_only.json b/python_only.json
+new file mode 100644
+index 0000000..1e3c143
+--- /dev/null
++++ b/python_only.json
+@@ -0,0 +1 @@
++["Python3", "pyyaml", "ruamel"]
+diff --git a/run_tests.py b/run_tests.py
+index 3312d8c..dd68d30 100755
+--- a/run_tests.py
++++ b/run_tests.py
+@@ -142,6 +142,21 @@ programs = {
+            "url":"",
+            "commands":["/usr/bin/env", "python3.5", os.path.join(PARSERS_DIR, "test_json.py")]
+        },
++   "Python3":
++       {
++           "url":"",
++           "commands":["/usr/bin/env", "python3", os.path.join(PARSERS_DIR, "test_json.py")]
++       },
++   "pyyaml": # pip install pyyaml
++       {
++           "url":"",
++           "commands":["/usr/bin/env", "python3", os.path.join(PARSERS_DIR, "test_yaml.py")]
++       },
++   "ruamel": # pip install ruamel.yaml
++       {
++           "url":"",
++           "commands":["/usr/bin/env", "python3", os.path.join(PARSERS_DIR, "test_ruamel.py")]
++       },
+    "Python cjson 1.10": # pip install cjson
+        {
+            "url":"https://pypi.python.org/pypi/python-cjson",
+-- 
+2.42.0
+
