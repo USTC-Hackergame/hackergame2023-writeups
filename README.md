@@ -113,7 +113,8 @@
 | [GalaxySnail](players/GalaxySnail) | 总排名第 44 名 | Hackergame 启动、猫咪小测、更深更暗、旅行照片 3.0 (1,2)、赛博井字棋、奶奶的睡前 flag 故事、组委会模拟器、虫、JSON ⊂ YAML?、Git? Git!、HTTP 集邮册、Docker for Everyone、惜字如金 2.0、🪐 高频率星球、🪐 小型大语言模型星球 (1)、🪐 流式星球、🪐 低带宽星球 (1)、Komm, süsser Flagge、为什么要打开 /flag 😡 (1)、异星歧途、O(1) 用户登录系统、不可加密的异世界 2 (1) |
 | [5ec1cff](players/5ec1cff/README.md) | 其它解法 | 为什么要打开 /flag 😡（2） |
 | [Mufanc](players/Mufanc/README.md) | 总排名第 87 名 | Hackergame 启动、猫咪小测、更深更暗、旅行照片 3.0（1）、赛博井字棋、奶奶的睡前 flag 故事、组委会模拟器、虫、JSON ⊂ YAML?、Git? Git!、HTTP 集邮册、Docker for Everyone、惜字如金 2.0、🪐 高频率星球、🪐 小型大语言模型星球（1）、🪐 流式星球、🪐 低带宽星球（1）、Komm, süsser Flagge、为什么要打开 /flag 😡、异星歧途 |
-| [L4wr3ncE](players/L4wr3ncE/README.md) | 总排名第 89 名 | Hackergame 启动、猫咪小测、更深更暗、赛博井字棋、奶奶的睡前 flag 故事、组委会模拟器、虫、JSON ⊂ YAML、Git Git!、Docker for Everyone、🪐 小型大语言模型星球（1, 2）、🪐 低带宽星球(1)、🪐 高频率星球、🪐 流式星球、Komm, süsser Flagge、为什么要打开 flag 😡
+| [L4wr3ncE](players/L4wr3ncE/README.md) | 总排名第 89 名 | Hackergame 启动、猫咪小测、更深更暗、赛博井字棋、奶奶的睡前 flag 故事、组委会模拟器、虫、JSON ⊂ YAML、Git Git!、Docker for Everyone、🪐 小型大语言模型星球（1, 2）、🪐 低带宽星球(1)、🪐 高频率星球、🪐 流式星球、Komm, süsser Flagge、为什么要打开 flag 😡 |
+| [ThTsOd](players/ThTsOd) | 总排名第 67 名 | 🪐 流式星球、逆向工程不需要 F5、旧日之痕（1） |
 
 ## 其他资源
 
